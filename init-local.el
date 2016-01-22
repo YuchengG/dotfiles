@@ -1,4 +1,5 @@
 ;; provide init local.
+;; Songpeng Zu  who uses Purcell setting rules.
 
 ;; change to other windows.
 (define-key global-map [f6] 'other-window)
@@ -24,4 +25,9 @@
 ;; set agenda files
 (setq org-agenda-files (list "~/home/songpeng/git-recipes/BeyondPie/diary/diary.org"))
 
+;; set tab indentation
+(set-default indent-tabs-mode nil)
+(setq tab-width 4)
+
 (provide 'init-local)
+;;; init-local.el ends here
