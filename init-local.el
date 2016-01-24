@@ -29,5 +29,10 @@
 (set-default indent-tabs-mode nil)
 (setq tab-width 4)
 
+;; org-mode set up
+;; Add the indentation
+;; Another way is
+;; (defun set-newline-and-indent() (local-set-key (kbd "\C-j") 'newline-and-indent))
+(add-hook 'org-mode-hook (lambda () (local-set-key "\C-j" 'newline-and-indent)))
 (provide 'init-local)
 ;;; init-local.el ends here
