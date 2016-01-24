@@ -34,5 +34,8 @@
 ;; Another way is
 ;; (defun set-newline-and-indent() (local-set-key (kbd "\C-j") 'newline-and-indent))
 (add-hook 'org-mode-hook (lambda () (local-set-key "\C-j" 'newline-and-indent)))
+
+;; Update the ispell directory
+(setq ispell-program-name "/usr/local/Cellar/aspell/0.60.6.1/bin/aspell")
 (provide 'init-local)
 ;;; init-local.el ends here
