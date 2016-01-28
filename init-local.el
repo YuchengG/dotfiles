@@ -1,7 +1,10 @@
+;;; package --- summary
+;;; Commentary:
 ;; provide init local.
 ;; Songpeng Zu  who uses Purcell setting rules.
 
 ;; change to other windows.
+;;; Code:
 (define-key global-map [f6] 'other-window)
 
 ;;(add-to-list 'load-path "/Users/wangchao/home/git-recipe/evernote-mode")
@@ -17,7 +20,7 @@
 ;;(global-set-key "\C-ceb" 'evernote-browser)
 
 ;; set the default coding
-(setq default-buffer-file-encoding-system "gbk")
+(setq default-buffer-file-encoding-system "utf-8")
 
 ;; def global key for redraw-display
 (global-set-key (kbd "\C-c \C-p") 'redraw-display)
@@ -37,5 +40,30 @@
 
 ;; Update the ispell directory
 (setq ispell-program-name "/usr/local/Cellar/aspell/0.60.6.1/bin/aspell")
+
+;; Env for auctex
+(add-hook 'LaTeX-mode-hook 'turn-on-cdlatex) ; with AUCTex LaTex mode
+(add-hook 'latex-mode-hook 'turn-on-cdlatex) ; with Emacs latex mode.
+;;(local-set-key (kbd "$ $ \C-b") 'my-local-math-env)
+;;(add-hook 'latex-mode-hook 'my-local-math-env)
+
+;; Used for GNU GO GAME.
+;; First, download and install gnugo with version 3.8. See the document, and on mac
+;; configure might need additional parameters. Not use the gnugo from package-list,
+;; instead download the latest version gnugo.el recommended by the GNU GO.Then load
+;; gnugo.el and gnu-xpms.el from the game-go-download-dict/interface. cp the files
+;; above to ~/.emacs.d/ then
+
+;; Edit: gnugo from pakcage-list also works. Need install gnugo first. Then try
+;; (setq gnugo-option-history (list "--komi 5.5 --boardsize 13")) and
+;; (setq gnugo-xpms 'gnugo-imgen-create-xpms)
+;; (add-hook 'gnugo-start-game-hook 'gnugo-image-display-mode)
+;; See www.gnuvola.org/software/gnugo for details.
+;; Maybe they are the same one. But the 'i' for generate the beautiful display not
+;; work now for gnugo from package-list.
+
+(load-file "~/.emacs.d/gnugo.el")
+(load-file "~/.emacs.d/gnugo-xpms.el")
+
 (provide 'init-local)
 ;;; init-local.el ends here
