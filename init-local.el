@@ -65,5 +65,11 @@
 (load-file "~/.emacs.d/gnugo.el")
 (load-file "~/.emacs.d/gnugo-xpms.el")
 
+;; Set for doc-view as vim normal-mode:j for next-line; k for previous-line
+(add-hook 'doc-view-mode-hook (lambda () (local-set-key (kbd "j") 'next-line)))
+(add-hook 'doc-view-mode-hook (lambda () (local-set-key (kbd "k") 'previous-line)))
+
+
+
 (provide 'init-local)
 ;;; init-local.el ends here
