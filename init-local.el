@@ -69,7 +69,18 @@
 (add-hook 'doc-view-mode-hook (lambda () (local-set-key (kbd "j") 'next-line)))
 (add-hook 'doc-view-mode-hook (lambda () (local-set-key (kbd "k") 'previous-line)))
 
+;; Set for ESS mode.
+(setq ess-indent-or-complete t)
+(setq comint-input-ring-size 1000)
+(setq ess-indent-level 4)
+(setq ess-arg-function-offset 4)
+(setq ess-else-offset 4)
 
+;; Set for FCI(fill column indicator)
+(setq-default fill-column 80) ; use set-fill-column to set locally
+(Setq fci-rule-color "darkblue")
+(define-globalized-minor-mode global-fci-mode fci-mode (lambda()(fci-mode 1)))
+(global-fci-mode 1) ; to close it in a buffer, try M-x fci-mode
 
 (provide 'init-local)
 ;;; init-local.el ends here
