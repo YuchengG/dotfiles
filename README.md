@@ -11,3 +11,5 @@
    And custom.el is automatically created by Emacs.
 5. **org_template_szu.org**  
    Common systax for org-mode in Emacs.
+6. **latex_beamer_template.tex**  
+   Latex beamer template. 
