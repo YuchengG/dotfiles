@@ -1,0 +1,232 @@
+\documentclass[mathserif, fleqn]{beamer}
+\mode<presentation>{
+  \usetheme{Antibes}
+  \setbeamercovered{transparent}
+}
+
+\usepackage{beamerthemeshadow}
+\usepackage{pgf,pgfarrows,pgfnodes,pgfautomata,pgfheaps}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{color,xcolor}
+\usepackage{graphicx}
+\usepackage{multimedia}
+\usepackage{manfnt}
+\usepackage[english]{babel}
+\usepackage{algorithmic}
+\usepackage{setspace}
+\usepackage[timeinterval=1]{tdclock}
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows}
+\usepackage{times}
+\usefonttheme[stillsanseriflarge]{serif}
+
+\beamertemplatesolidbackgroundcolor{white}
+\beamertemplatetransparentcovereddynamic
+\beamertemplateballitem
+\beamertemplatenumberedballsectiontoc
+
+\beamertemplateboldpartpage
+\setbeamertemplate{itemize item}[triangle]
+\setbeamertemplate{footline}[text line] {%
+\llap{Songpeng Zu\hspace{-5mm}}\centerline{\strut Screening Rules on Sparse Supervised Learning}\llap{\insertframenumber\hspace{-5mm}}}
+\graphicspath{{./figures/}}
+
+\begin{document}
+\title{Introduction to Screening Rules on Sparse Supervised Learning}
+\author[szu]{Songpeng Zu}
+\date[\initclock\tdtime]{\today}
+\frame[plain]{\titlepage}
+%\section*{Outline}
+\frame{
+ \setbeamercolor{uppercol}{fg=white,bg=teal}
+ \begin{beamerboxesrounded}[upper=uppercol, shadow=true]{Outline}
+ \begin{spacing}{1.2}
+\begin{itemize}
+\item Background
+\begin{itemize}
+\item Screening Problem
+\item Lagrange dual function and conjuate function
+\item Dual form for sparse supervised model
+\end{itemize}
+\item Screening Rules
+  \begin{itemize}
+  \item SAFE by T.Rabbani {\em et al.} Pacific Journal of Optimization, 2012
+  \item \textcolor{gray}{Strong Rules  by T.Hastie {\em et al.} J.R. Statistics.Soc.B 2012}
+  \item \textcolor{gray}{DOME by P.J.Ramadge {\em et al.} NIPS 2012}
+  \item \textcolor{gray}{Slores  by Jieping Ye {\em et al.} NIPS 2014, JMLR 2015}
+  \end{itemize}
+\item Summary
+\end{itemize}
+\end{spacing}
+\end{beamerboxesrounded}
+}
+\section{Background}
+\subsection{Screeening Problem}
+\frame{
+\frametitle{Problem Description}
+  \begin{itemize}
+  \item Sparse: $l_{1}$-regularized supervised learning, such as logistic regression, LASSO
+  \item Effective implementation: high dimensional data
+  \item Screening: Identify ``$0$'' components in the soluntion vector before learning.
+  \end{itemize}
+}
+\subsection{Lagrange dual function and conjucate function}
+\frame{
+\frametitle{Lagrange dual function}
+The primary optmization problem:
+\begin{equation}
+  \begin{aligned}
+\mathcal{P}:~minimize~~~~ &f_{0}(x)\\
+s.t.~~~ & f_{i}(x) \leq 0, i = 1, \dotsm, m\\
+& h_{i}(x) = 0, i = 1, \dotsm, p
+\end{aligned}
+\end{equation}
+The Lagrange dual function:
+\begin{equation}
+ \mathcal{Q}(\lambda, \nu): \phi(\lambda,\nu) : = \inf_{x \in \mathcal{D} }\Big(f_{0}(x)+\sum_{i=1}^{m}\lambda_{i}f_{i}(x)+\sum_{i=1}^{p}\nu_{i}h_{i}(x)\Big)
+\end{equation}
+In which, $\lambda, \nu \in dom~\phi$.
+}
+\frame{
+\frametitle{Conjuate function}
+Conjuate function given $f$:
+\begin{equation}
+  f^{*}(y) = \sup_{x \in dom~ f}(y^{T}x - f(x))
+\end{equation}
+Lagrange dual function (linear constrains):
+\begin{equation}
+\begin{aligned}
+  \phi(\lambda, \nu) & = \inf_{x }\Big(f_{0}(x)+\lambda^{T}(Ax - b) + \nu^{T}(Cx - d) \Big) \\
+  & = -b^{T}\lambda - d^{T}\nu + \inf_{x}\Big(f_{0}(x) + {(A^{T}\lambda + C^{T}\nu)}^{T}x\Big)\\
+  & = -b^{T}\lambda -d^{T}\nu - f_{0}^{*}(-A^{T}\lambda - C^{T}\nu)
+\end{aligned}
+\end{equation}
+}
+\subsection{Dual format for sparse supervised learning}
+\frame{
+\frametitle{$l1$-regularization  with equality constraint}
+Consider the family of problems:
+\begin{equation}
+\begin{aligned}
+  \mathcal{P}(\lambda):~ &\phi(\lambda):= \inf_{\omega, \nu, z}\sum_{i=1}^{m}f(z_{i}) +\lambda {\parallel \omega\parallel}_{1}\\
+  s.t.~~ &z_{i} = a_{i}^T\omega + b_{i}\nu + c_{i}, i = 1,\dotsm, m.
+\end{aligned}
+\end{equation}
+In which, $f$ is a closed convex function, non-negative everywhere.\\
+For example,
+\begin{subequations}\label{grp}
+\begin{align}
+LASSO &: f(x) = (1/2)x^2 \label{second}\\
+Hinge~loss &: f(x) = {(1 - x)}_{+}\label{third}\\
+Logistic~loss &: f(x) = \log(1 + e^{-x}) \label{fourth}
+\end{align}
+\end{subequations}
+}
+\frame{
+%\frametitle{$l1$-regularization  with equality constraint}
+The dual function $\mathcal{D}(\lambda)$ is
+\begin{equation*}
+ \begin{split}
+&\phi(\lambda)= \inf_{\omega, \nu, z}\sum_{i=1}^{m}f(z_{i}) + \lambda {\parallel \omega \parallel}_{1}+ \sum_{i=1}^{m}\theta_{i}(z_{i} - a_{i}^{T}\omega - b_{i}\nu - c_{i}) \\
+& = \inf_{\omega,\nu,z}\Big(\sum_{i=1}^{m}\theta_{i}z_{i} + f(z_{i}) + \sum_{i=1}^{p}(\lambda\vert\omega_{i}\vert - \theta^{T}x_{k}\omega_{i}) - \theta^{T}b\nu - \theta^{T}c\Big)\\
+& = \sup_{\theta}\Big(\underbrace{c^{T}\theta - \sum_{i=1}^{m}f^{*}(\theta_{i})}_{\textcolor{blue}{G(\theta)}} \Big): \textcolor{red}{\theta^{T}b = 0, \vert\theta^{T}x_{k}\vert \leq \lambda, k = 1,\dotsm,p}\\
+  \end{split}
+\end{equation*}
+In which, $\mathbf{X} = {(a_{1},\dotsm,a_{m})}^{T} \in \mathcal{R}^{m\times p}$, $x_{k}$ is the kth column of the matrix. $G(\theta)$ is concave. Then we have,
+\begin{equation}
+  \textcolor{red}{\mathcal{T}(\theta^{*}, x_{k}) = \vert\theta^{*T}x_{k}\vert  < \lambda \Rightarrow {(\omega^{*})}_{k} = 0}
+\end{equation}
+}
+\frame{
+\frametitle{Example: LASSO}
+The LASSO problem $\mathcal{P}(\lambda)$ is
+\begin{equation}
+  \min_{\omega}\frac{1}{2}{\parallel\mathbf{X}\omega - y\parallel}_{2}^{2} + \lambda{\parallel\omega\parallel}_{1}
+\end{equation}
+The dual format of LASSO $\mathcal{D}(\lambda)$ is
+\begin{equation}
+\begin{aligned}
+  \phi(\lambda) & = \max_{\theta}G(\theta)\\
+& = \max_{\theta} \frac{1}{2}{\parallel y \parallel}_{2}^{2} - \frac{1}{2}{\parallel\theta + y\parallel}_{2}^{2}: {\vert\mathbf{X}^{T}\theta\vert}_{\infty}\leq \lambda
+\end{aligned}
+\end{equation}
+}
+\frame{
+\frametitle{Geometry of the dual problem}
+\begin{flushleft}
+%\centering
+\includegraphics[width=1.05\textwidth]{lasso}
+\end{flushleft}
+}
+\frame{
+\frametitle{Example: logistic regression}
+The logistic regression problem $\mathbf{P}(\lambda)$ is
+\begin{equation}
+  \phi(\lambda) = \min_{\omega,\mu}\sum_{i=1}^{m}\log(1+\exp(-y_{i}(z_{i}^{T}\omega+\mu))) + \lambda{\parallel\omega\parallel}_{1}
+\end{equation}
+Then the dual format of logistic regression $\mathcal{D}(\lambda)$ is:
+\begin{equation}
+\begin{aligned}
+\phi(\lambda)&=\max_{\theta}\sum_{i=1}^{T}(\theta_{i}\log(-\theta_{i})-{(1+\theta_{i})}^{T}\log(1+\theta_{i}))\\
+s.t. ~&: -\mathbf{1} < \theta < \mathbf{0}, \theta^{T}y=0, \vert\theta^{T}x_{k}\vert \leq \lambda, k = 1,\dotsm,p
+\end{aligned}
+\end{equation}
+}
+\section{Screening Rules}
+\subsection{Estimation on $\mathcal{T}(\theta^{*}, x_{k})$}
+\frame{
+\frametitle{Basic idea}
+\begin{itemize}
+\item Find a set $\Theta, s.t., \theta^{*} \in \Theta$. If $\vert\theta^{T}x_{k}\vert < \lambda, \forall \theta \in \Theta$, then ${(\omega^{*})}_{k} = 0$.
+\item Use the known $\omega_{0}^{*} (\theta_{0}^{*})$ of $\mathcal{P}(\lambda_{0})$ to estimatie $\Theta$ under $\lambda < \lambda_{0}$.
+\end{itemize}
+}
+\frame{
+\frametitle{SAFE idea}
+Here we use LASSO as one example.
+\begin{itemize}
+\item $\theta^{*} \in \Theta_{1} = \{\theta \vert G(\theta) \geq \gamma\}$, in which $\gamma = G(\theta_{s})$, $\theta_{s}$ is a dual feasible point for $\mathcal{D}(\lambda)$.
+  \begin{itemize}
+  \item Let $\theta_{s} = s\theta_{0}^{*}, s \in \mathcal{R} $, then when $\vert s\vert\leq \frac{\lambda}{\lambda_{0}}, {\parallel\mathbf{X}^{T}\theta_{s}\parallel}_{\infty}$
+  \item Let $\gamma = \max_{s}\{G(s\theta_{0}^{*}): \vert s \vert\leq \frac{\lambda}{\lambda_{0}}\}$, which is a quadratic function.
+  \end{itemize}
+\item $\theta^{*}\in \Theta_{2} = \{\theta \vert g^{T}(\theta - \theta_{0}^{*}) \leq 0\}$, in which $g = \nabla G(\theta_{0}^{*})$
+  \begin{itemize}
+  \item $\theta_{0}^{*}$ is a dual optimal point if $g^{T}(\theta_{0} - \theta_{0}^{*}) \leq 0 $, in which $\theta_{0}$ is a feasible point for $\mathcal{D}(\lambda_{0})$.
+ \item $\theta \in \mathcal{D}(\lambda_{0})$ since $\vert \theta^{T}x_{k}\vert\leq \lambda \leq \lambda_{0}$
+  \end{itemize}
+\end{itemize}
+}
+\frame{
+\begin{figure}
+\includegraphics[width=\textwidth]{safe}
+\end{figure}
+}
+\frame{
+\frametitle{SAFE-LASSO}
+Ignore the set below:
+\begin{equation}
+\begin{aligned}
+  &\xi = \lbrace k \vert \lambda > \max (\mathcal{T}(\gamma, x_{k}), \mathcal{T}(\gamma, -x_{k})) \rbrace\\
+  &\mathcal{T}(\gamma, x_{k}) = \max_{\theta}x_{k}^{T}\theta: G(\theta) \geq \gamma, g^{T}(\theta - \theta_{0}^{*}) \leq 0
+\end{aligned}
+\end{equation}
+We then discards the j-th feature if
+\begin{equation}
+\vert x_{j}^{T}y\vert < \lambda - {\parallel x\parallel}_{2}{\parallel y \parallel}_{2}\frac{\lambda_{\max} - \lambda}{\lambda_{\max}}
+\end{equation}
+Note when ${\parallel x\parallel}_{2}=1,{\parallel y \parallel}_{2}=1$, we have
+\begin{equation}
+%\begin{aligned}
+ \lambda > \rho_{j}\lambda_{\max},
+ \rho_{j} = \frac{1 + \vert \cos\alpha_{j}\vert}{1 + \max_{1\leq j \leq p}\vert  \cos\alpha_{j}\vert}
+%\end{aligned}
+\end{equation}
+$\alpha_{j}$ is the angle between  j-th feature and the response vector y.
+}
+%\frame{
+%\frametitle{Dual Polytope Projection}
+%
+%}
+
+\end{document}
