@@ -2,6 +2,10 @@
 #+AUTHOR: Songpeng Zu
 #+EMAIL: zusongpeng@gmail.com
 #+DATE: 2016-01-31
+#+startup: latexpreview
+#+LATEX_CLASS: article
+#+LATEX_CLASS_OPTIONS: [a4paper]
+#+LATEX_HEADER: \usepackage{color}
 #+LANGUAGE: en
 #+OPTIONS: H:2 num:t toc:t
 
