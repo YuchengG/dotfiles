@@ -89,10 +89,7 @@ alias ls='ls -G'
 alias ll='ls -alFG'
 alias la='ls -AG'
 alias l='ls -CFG'
-
-# vim -> emacs
- alias emacs='emacs-24.5 -nw '
-
+alias git='/usr/local/git/bin/git'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -121,3 +118,4 @@ fi
 # Language
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+alias ctags='/usr/local/bin/ctags'

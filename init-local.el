@@ -78,9 +78,16 @@
 
 ;; Set for FCI(fill column indicator)
 (setq-default fill-column 80) ; use set-fill-column to set locally
-(Setq fci-rule-color "darkblue")
+(setq fci-rule-color "green")
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda()(fci-mode 1)))
 (global-fci-mode 1) ; to close it in a buffer, try M-x fci-mode
 
+;; Add the ctags setup.
+(defun create-tags (dir-name)
+  "Create tags file for DIR-NAME."
+  (interactive "DDirectory: ")
+  (shell-command
+   (format "/usr/local/bin/ctags -e -R %s" (directory-file-name dir-name))))
 (provide 'init-local)
+
 ;;; init-local.el ends here

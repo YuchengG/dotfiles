@@ -7,3 +7,6 @@ export PATH="/Users/wangchao/home/songpeng/software/Anaconda/anaconda/bin:$PATH
 
 # added by szu, load .bashrc
 [[ -s ~/.bashrc ]] && source ~/.bashrc"
+
+# added by szu
+alias ls='ls -G'
