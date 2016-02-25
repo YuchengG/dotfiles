@@ -90,4 +90,7 @@
    (format "/usr/local/bin/ctags -e -R %s" (directory-file-name dir-name))))
 (provide 'init-local)
 
+;; Add cmake-mode.
+(setq load-path (cons (expand-file-name "/dir/with/cmake-mode") load-path))
+(require 'cmake-mode)
 ;;; init-local.el ends here
