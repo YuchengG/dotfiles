@@ -10,3 +10,4 @@ export PATH="/Users/wangchao/home/songpeng/software/Anaconda/anaconda/bin:$PATH
 
 # added by szu
 alias ls='ls -G'
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
