@@ -77,10 +77,11 @@
 (setq ess-else-offset 4)
 
 ;; Set for FCI(fill column indicator)
-(setq-default fill-column 80) ; use set-fill-column to set locally
+(setq-default fill-column 70) ; use set-fill-column to set locally
 (setq fci-rule-color "green")
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda()(fci-mode 1)))
 (global-fci-mode 1) ; to close it in a buffer, try M-x fci-mode
+(auto-fill-mode 1) ; open auto-fill-mode
 
 ;; Add the ctags setup.
 (defun create-tags (dir-name)
@@ -91,6 +92,7 @@
 (provide 'init-local)
 
 ;; Add cmake-mode.
-(setq load-path (cons (expand-file-name "/dir/with/cmake-mode") load-path))
-(require 'cmake-mode)
+;(setq load-path (cons (expand-file-name "/dir/with/cmake-mode") load-path))
+;(require 'cmake-mode)
+
 ;;; init-local.el ends here
