@@ -92,7 +92,6 @@
 (provide 'init-local)
 
 ;; Add cmake-mode.
-;(setq load-path (cons (expand-file-name "/dir/with/cmake-mode") load-path))
-;(require 'cmake-mode)
-
+(setq load-path (cons (expand-file-name "/dir/with/cmake-mode") load-path))
+(require 'cmake-mode)
 ;;; init-local.el ends here
