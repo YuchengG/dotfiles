@@ -109,7 +109,28 @@
 ;; need install companu-c-headers
 (add-to-list 'company-backends 'company-c-headers)
 (add-to-list 'company-c-headers-path-system "/usr/local/Cellar/boost/1.60.0_1/include")
-;; Not complete:
-;;tuhdo.github.io/c-ide.html.
+
+;;install flycheck-google-cpplint and google-c-style
+(eval-after-load 'flycheck
+  '(progn
+     (require 'flycheck-google-cpplint)
+     ;; Add Google C++ Style checker.
+     ;; In default, syntax checked by Clang and Cppcheck.
+     (flycheck-add-next-checker 'c/c++-clang
+                                'c/c++-googlelint 'append)))
+
+;; Not work, but custom set works. for the function below.
+(add-hook 'c++-mode-hook
+          (lambda () (setq flycheck-clang-include-path
+                      (list (expand-file-name "~/home/songpeng/git-recipes/GIFT/dev_version/dev_src/src")
+                            "/usr/local/Cellar/boost/1.60.0_1/include"))))
+(require 'cc-mode)
+(require 'google-c-style)
+(add-hook 'c-mode-common-hook 'google-c-style)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+(add-hook 'c++-mode-hook 'google-c-style)
+
+;; C++ ENV Not complete:
+;; GOOD REF: tuhdo.github.io/c-ide.html.
 
 ;;; init-local.el ends here

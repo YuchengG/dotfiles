@@ -36,6 +36,9 @@ static char *note[] = {
 \"######....\",
 \"#######..#\" };")))
  '(fci-rule-color "#515151")
+ '(flycheck-clang-include-path
+   (quote
+    ("(expand-file-name \"~/home/songpeng/git-recipes/GIFT/dev_version/dev_src/src\")" "/usr/local/Cellar/boost/1.60.0_1/include")))
  '(gnus-logo-colors (quote ("#259ea2" "#adadad")))
  '(gnus-mode-line-image-cache
    (quote
