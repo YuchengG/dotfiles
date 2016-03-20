@@ -7,6 +7,8 @@
    [default bold shadow italic underline bold bold-italic bold])
  '(ansi-color-names-vector
    (vector "#cccccc" "#f2777a" "#99cc99" "#ffcc66" "#6699cc" "#cc99cc" "#66cccc" "#2d2d2d"))
+ '(column-number-mode t)
+ '(cua-mode t nil (cua-base))
  '(custom-enabled-themes (quote (tsdh-dark)))
  '(custom-safe-themes
    (quote
@@ -74,6 +76,8 @@ static char *gnus-pointer[] = {
      (ruby-compilation-executable . "rbx")
      (ruby-compilation-executable . "jruby"))))
  '(session-use-package t nil (session))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil)
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote

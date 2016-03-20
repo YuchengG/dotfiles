@@ -77,7 +77,7 @@
 (setq ess-else-offset 4)
 
 ;; Set for FCI(fill column indicator)
-(setq-default fill-column 70) ; use set-fill-column to set locally
+(setq-default fill-column 75) ; use set-fill-column to set locally
 (setq fci-rule-color "green")
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda()(fci-mode 1)))
 (global-fci-mode 1) ; to close it in a buffer, try M-x fci-mode
@@ -93,5 +93,23 @@
 
 ;; Add cmake-mode.
 (setq load-path (cons (expand-file-name "/dir/with/cmake-mode") load-path))
+
+;; C++/C setting.
+(require 'helm-gtags')
+(require 'setup-helm )
+(require 'setup-helm-gtags)
+(require 'functipn-args)
 (require 'cmake-mode)
+(require 'hs-minor-mode)
+(require 'company)
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-backends (delete 'company-semantic company-backends))
+(define-key c-mode-map [(tab)] 'company-complete)
+(define-key c++-mode-map [(tab)] 'company-complete)
+;; need install companu-c-headers
+(add-to-list 'company-backends 'company-c-headers)
+(add-to-list 'company-c-headers-path-system "/usr/local/Cellar/boost/1.60.0_1/include")
+;; Not complete:
+;;tuhdo.github.io/c-ide.html.
+
 ;;; init-local.el ends here
