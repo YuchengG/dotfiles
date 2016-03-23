@@ -42,8 +42,15 @@
 (setq ispell-program-name "/usr/local/Cellar/aspell/0.60.6.1/bin/aspell")
 
 ;; Env for auctex
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq-default TeX-master nil)
+
 (add-hook 'LaTeX-mode-hook 'turn-on-cdlatex) ; with AUCTex LaTex mode
-(add-hook 'latex-mode-hook 'turn-on-cdlatex) ; with Emacs latex mode.
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+(add-hook 'LaTex-mode-hook 'flyspell-mode)
+(add-hook 'LaTex-mode-hook 'LaTex-math-mode)
+(add-hook 'LaTex-mode-hook 'turn-on-reftex)
 ;;(local-set-key (kbd "$ $ \C-b") 'my-local-math-env)
 ;;(add-hook 'latex-mode-hook 'my-local-math-env)
 
@@ -77,7 +84,7 @@
 (setq ess-else-offset 4)
 
 ;; Set for FCI(fill column indicator)
-(setq-default fill-column 75) ; use set-fill-column to set locally
+(setq-default fill-column 80) ; use set-fill-column to set locally
 (setq fci-rule-color "green")
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda()(fci-mode 1)))
 (global-fci-mode 1) ; to close it in a buffer, try M-x fci-mode

@@ -63,6 +63,7 @@ static char *gnus-pointer[] = {
 \"###....####.######\",
 \"###..######.######\",
 \"###########.######\" };")))
+ '(line-number-mode nil)
  '(org-list-allow-alphabetical t)
  '(safe-local-variable-values
    (quote
