@@ -37,6 +37,7 @@
 ;; Another way is
 ;; (defun set-newline-and-indent() (local-set-key (kbd "\C-j") 'newline-and-indent))
 (add-hook 'org-mode-hook (lambda () (local-set-key "\C-j" 'newline-and-indent)))
+(add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 
 ;; Update the ispell directory
 (setq ispell-program-name "/usr/local/Cellar/aspell/0.60.6.1/bin/aspell")
@@ -47,6 +48,7 @@
 (setq-default TeX-master nil)
 
 (add-hook 'LaTeX-mode-hook 'turn-on-cdlatex) ; with AUCTex LaTex mode
+(add-hook 'latex-mode-hook 'turn-on-cdlatex) ; with emacs latex mode.
 (add-hook 'LaTeX-mode-hook 'visual-line-mode)
 (add-hook 'LaTex-mode-hook 'flyspell-mode)
 (add-hook 'LaTex-mode-hook 'LaTex-math-mode)
