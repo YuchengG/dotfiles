@@ -3,22 +3,7 @@
 ;; provide init local.
 ;; Songpeng Zu  who uses Purcell setting rules.
 
-;; change to other windows.
 ;;; Code:
-(define-key global-map [f6] 'other-window)
-
-;;(add-to-list 'load-path "/Users/wangchao/home/git-recipe/evernote-mode")
-;;(require 'evernote-mode)
-;;(setq evernote-username "zusongpeng") ; optional: you can use this username as default.
-;;(setq evernote-enml-formatter-command '("w3m" "-dump" "-I" "UTF8" "-O" "UTF8")) ; option
-;;(global-set-key "\C-cec" 'evernote-create-note)
-;;(global-set-key "\C-ceo" 'evernote-open-note)
-;;(global-set-key "\C-ces" 'evernote-search-notes)
-;;(global-set-key "\C-ceS" 'evernote-do-saved-search)
-;;(global-set-key "\C-cew" 'evernote-write-note)
-;;(global-set-key "\C-cep" 'evernote-post-region)
-;;(global-set-key "\C-ceb" 'evernote-browser)
-
 ;; set the default coding
 (setq default-buffer-file-encoding-system "utf-8")
 
@@ -87,9 +72,9 @@
 
 ;; Set for FCI(fill column indicator)
 (setq-default fill-column 80) ; use set-fill-column to set locally
-(setq fci-rule-color "green")
-(define-globalized-minor-mode global-fci-mode fci-mode (lambda()(fci-mode 1)))
-(global-fci-mode 1) ; to close it in a buffer, try M-x fci-mode
+;;(setq fci-rule-color "green")
+;;(define-globalized-minor-mode global-fci-mode fci-mode (lambda()(fci-mode 1)))
+;;(global-fci-mode 1) ; to close it in a buffer, try M-x fci-mode
 (auto-fill-mode 1) ; open auto-fill-mode
 
 ;; Add the ctags setup.
@@ -98,7 +83,6 @@
   (interactive "DDirectory: ")
   (shell-command
    (format "/usr/local/bin/ctags -e -R %s" (directory-file-name dir-name))))
-(provide 'init-local)
 
 ;; Add cmake-mode.
 (setq load-path (cons (expand-file-name "/dir/with/cmake-mode") load-path))
@@ -139,7 +123,11 @@
 (add-hook 'c-mode-common-hook 'google-make-newline-indent)
 (add-hook 'c++-mode-hook 'google-c-style)
 
+;; Use transparent window
+(set-frame-parameter (selected-frame) 'alpha '(75 75))
+(add-to-list 'default-frame-alist '(alpha 75 75))
+
 ;; C++ ENV Not complete:
 ;; GOOD REF: tuhdo.github.io/c-ide.html.
-
+(provide 'init-local)
 ;;; init-local.el ends here
