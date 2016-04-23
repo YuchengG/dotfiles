@@ -129,5 +129,9 @@
 
 ;; C++ ENV Not complete:
 ;; GOOD REF: tuhdo.github.io/c-ide.html.
+
+;; Visible Bell Work-Around on OS X EI Capitan.
+(setq visible-bell nil) ;; The default
+(setq ring-bell-function 'ignore)
 (provide 'init-local)
 ;;; init-local.el ends here
