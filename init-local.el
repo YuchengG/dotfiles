@@ -156,5 +156,28 @@
   (interactive)
   (mapc 'kill-buffer (buffer-list)))
 
+;; nyan-mode
+(case window-system ((x w32) (nyan-mode)))
+
+;; golden-ratio
+(require 'golden-ratio)
+(add-to-list 'golden-ratio-exclude-modes "ediff-mode")
+(add-to-list 'golden-ratio-exclude-modes "helm-mode")
+(add-to-list 'golden-ratio-exclude-modes "dired-mode")
+(add-to-list 'golden-ratio-inhibit-functions 'pl/helm-alive-p)
+(defun pl/helm-alive-p ()
+  (if (boundp 'helm-alive-p)
+      (symbol-value 'helm-alive-p)))
+;; do not enable golden-raio in these modes
+(setq golden-ratio-exclude-modes '("ediff-mode"
+                                   "gud-mode"
+                                   "magit-log-mode"
+                                   "magit-reflog-mode"
+                                   "magit-status-mode"
+                                   "IELM"
+                                   "eshell-mpde"
+                                   "dired-mode"))
+(golden-ratio-mode)
+
 (provide 'init-local)
 ;;; init-local ends here
