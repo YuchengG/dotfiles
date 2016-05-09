@@ -158,9 +158,11 @@
 
 ;; nyan-mode
 (case window-system ((x w32) (nyan-mode)))
+(nyan-mode 1)
 
 ;; golden-ratio
 (require 'golden-ratio)
+(golden-ratio 1)
 (add-to-list 'golden-ratio-exclude-modes "ediff-mode")
 (add-to-list 'golden-ratio-exclude-modes "helm-mode")
 (add-to-list 'golden-ratio-exclude-modes "dired-mode")
