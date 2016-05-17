@@ -64,6 +64,9 @@ static char *gnus-pointer[] = {
 \"###..######.######\",
 \"###########.######\" };")) t)
  '(line-number-mode nil)
+ '(org-agenda-files
+   (quote
+    ("~/home/songpeng/git-recipes/BeyondPie/GTD/diary_GTD_2016.org")))
  '(org-list-allow-alphabetical t)
  '(package-selected-packages
    (quote
