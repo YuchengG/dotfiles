@@ -3,9 +3,12 @@
 # Songpeng Zu
 # 2016-02-18
 
-# cp init-local.el and custom.el files
-cp ~/.emacs.d/lisp/init-local.el ./
-cp ~/.emacs.d/custom.el ./
+# cp init-local.el and custom.el files based on Purcell config.
+#cp ~/.emacs.d/lisp/init-local.el ./
+#cp ~/.emacs.d/custom.el ./
+
+# cp dotspacemacs based spacemacs config
+cp ~/.spacemacs ./
 
 # cp .bashrc and .bash_profile
 cp ~/.bashrc ./
