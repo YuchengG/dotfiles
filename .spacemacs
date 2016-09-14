@@ -99,7 +99,6 @@ values."
    dotspacemacs-themes '(spacemacs-dark
                          spacemacs-light
                          solarized-light
-                         solarized-dark
                          leuven
                          monokai
                          zenburn)
