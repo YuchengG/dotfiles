@@ -237,6 +237,7 @@ layers configuration. You are free to put any user code."
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
   (ispell-change-dictionary "american" t)
   (setq gnugo-xpms 'gnugo-imgen-create-xpms)
+  (setq mac-command-modifier 'control)
   (defun szu/gnugo/help()
     "return gnugo help by running shell command."
     (interactive)
