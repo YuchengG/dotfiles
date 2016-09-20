@@ -243,7 +243,8 @@ layers configuration. You are free to put any user code."
     (interactive)
     (shell-command "gnugo --help"))
   (global-set-key (kbd "\C-d") 'backward-delete-char)
-  (setq org-agenda-files (list "~/home/songpeng/git-recipes/BeyondPie/GTD/tasks-2016.org"))
+  (setq org-agenda-files (list "~/home/songpeng/git-recipes/BeyondPie/GTD/tasks-2016.org"
+                               "~/home/songpeng/git-recipes/BeyondPie/GTD/diary_GTD_2016.org"))
   (defun notify-osx (title message)
     (call-process "terminal-notifier"
     nil 0 nil
