@@ -30,6 +30,8 @@ values."
      (markdown :variables
                markdown-command "/usr/local/bin/pandoc")
      org
+     ;(org :variables
+     ;     org-todo-keywords '((sequence "TODO" "DONE" "CANCEL" "WAIT")))
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -96,11 +98,11 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-dark
+   dotspacemacs-themes '(monokai
+                         spacemacs-dark
                          spacemacs-light
                          solarized-light
                          leuven
-                         monokai
                          zenburn)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -265,6 +267,10 @@ layers configuration. You are free to put any user code."
   (add-hook 'org-pomodoro-killed-hook
             (lambda ()
               (notify-osx "Pomodoro Killed." "One does not simply kill a pomodoro!")))
+  (setq org-todo-keywords
+        (quote ((sequence "TODO" "NEXT" "|" "DONE")
+                (sequence "WAITING" "HOLD" "|" "CANCELED" "MOVED" "PHONE" "MEETING"))))
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -288,7 +294,7 @@ layers configuration. You are free to put any user code."
    (quote
     ("6df30cfb75df80e5808ac1557d5cc728746c8dbc9bc726de35b15180fa6e0ad9" "0ae09e79d0a3a7c9f31522fa325c7b9f248e5f5481e9b4a0c3bb9f3a91f221f1" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(doc-view-continuous t)
- '(fci-rule-color "#073642")
+ '(fci-rule-color "#073642" t)
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
@@ -360,4 +366,5 @@ layers configuration. You are free to put any user code."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
- '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil))))
+ '(term ((t (:inherit default)))))
