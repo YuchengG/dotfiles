@@ -46,6 +46,8 @@ values."
      python
      c-c++
      ess
+     (mu4e :variables
+           mu4e-installation-path "/usr/share/emacs/site-lisp")
      )
 
    ;; List of additional packages that will be installed without being
@@ -270,7 +272,62 @@ layers configuration. You are free to put any user code."
   (setq org-todo-keywords
         (quote ((sequence "TODO" "NEXT" "|" "DONE")
                 (sequence "WAITING" "HOLD" "|" "CANCELED" "MOVED" "PHONE" "MEETING"))))
+  (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
+  (when (eq system-type 'darwin)
+    (add-to-list 'load-path "/usr/local/Cellar/mu/HEAD/share/emacs/site-lisp/mu4e"))
+
+  (defun offlineimap-get-password (host port)
+    (require 'netrc)
+    (let* ((netrc (netrc-parse (expand-file-name "~/.authinfo.gpg")))
+           (hostentry (netrc-machine netrc host port port)))
+      (when hostentry (netrc-get hostentry "password"))))
+
+  (setq mu4e-html2text-command 'mu4e-shr2text)
+  (add-hook 'mu4e-view-mode-hook
+            (lambda ()
+              (local-set-key (kbd "<tab>") 'shr-next-link)
+              (local-set-key (kbd "<backtab>" 'shr-previous-link))))
+  (setq mu4e-view-show-images t)
+  ;; Use mu4e as default mail agent
+  (setq mail-user-agent 'mu4e-user-agent)
+  ;; Mail folder set to ~/Maildir
+  (setq mu4e-maildir "~/Maildir")         ; NOTE: should not be symbolic link
+  ;; Fetch mail by offlineimap
+  (setq mu4e-get-mail-command "offlineimap")
+  ;; Fetch mail in 60 sec interval
+  (setq mu4e-update-interval 60);; Use mu4e as default mail agent
+  (setq mail-user-agent 'mu4e-user-agent)
+  ;; Mail folder set to ~/Maildir
+  (setq mu4e-maildir "~/Maildir")         ; NOTE: should not be symbolic link
+  ;; Fetch mail by offlineimap
+  (setq mu4e-get-mail-command "offlineimap")
+  ;; Fetch mail in 60 sec interval
+  (setq mu4e-update-interval 60)
+  (setq mu4e-sent-folder   "/Gmail/Sent")
+  ;; unfinished messages
+  (setq mu4e-drafts-folder "/Gmail/Drafts")
+  ;; trashed messages
+  (setq mu4e-trash-folder  "/Gmail/Trash")
+  ;; saved messages
+  (setq mu4e-trash-folder  "/Gmail/Archive")
+  (setq mu4e-html2text-command 'mu4e-shr2text)
+  ;; try to emulate some of the eww key-bindings
+  (add-hook 'mu4e-view-mode-hook
+            (lambda ()
+              (local-set-key (kbd "<tab>") 'shr-next-link)
+              (local-set-key (kbd "<backtab>") 'shr-previous-link)))
+  (setq message-send-mail-function 'smtpmail-send-it
+        smtpmail-stream-type 'starttls
+        starttls-use-gnutls t)
+  ;; Personal info
+  (setq user-full-name "Songpeng, Zu")          ; FIXME: add your info here
+  (setq user-mail-address "zusongpeng@gmail.com"); FIXME: add your info here
+  ;; gmail setup
+  (setq smtpmail-smtp-server "smtp.gmail.com")
+  (setq smtpmail-smtp-service 587)
+  (setq smtpmail-smtp-user "zusongpeng@gmail.com") ; FIXME: add your gmail addr here
+  (setq mu4e-compose-signature "Sent from my emacs.")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
