@@ -48,6 +48,7 @@ values."
      ess
      (mu4e :variables
            mu4e-installation-path "/usr/share/emacs/site-lisp")
+     writes ; personal layer.
      )
 
    ;; List of additional packages that will be installed without being
