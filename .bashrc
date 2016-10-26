@@ -119,3 +119,5 @@ fi
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 alias ctags='/usr/local/bin/ctags'
+
+export RDBASE=/usr/local/share/RDKit

@@ -1,9 +1,9 @@
 
 # added by Anaconda2 2.4.1 installer
-export PATH="//anaconda/bin:$PATH"
+#export PATH="//anaconda/bin:$PATH"
 
 # added by Anaconda2 2.4.1 installer
-export PATH="/Users/wangchao/home/songpeng/software/Anaconda/anaconda/bin:$PATH"
+#export PATH="/Users/wangchao/home/songpeng/software/Anaconda/anaconda/bin:$PATH"
 # added by szu, load tex binary path.
 export PATH="/Library/TeX/texbin/:$PATH"
 
@@ -19,3 +19,6 @@ export DYLD_LIBRARY_PATH=/usr/local/Cellar/boost/1.60.0_1/lib/:$DYLD_LIBRARY_PAT
 alias ls='ls -G'
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 
+
+# added by Anaconda2 4.2.0 installer
+export PATH="//anaconda/bin:$PATH"

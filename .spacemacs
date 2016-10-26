@@ -335,6 +335,7 @@ layers configuration. You are free to put any user code."
   (setq smtpmail-smtp-user "zusongpeng@gmail.com") ; FIXME: add your gmail addr here
   (setq mu4e-compose-signature "Sent from my emacs.")
   (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
+  (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -402,6 +403,9 @@ layers configuration. You are free to put any user code."
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")
+ '(tramp-remote-path
+   (quote
+    (tramp-default-remote-path "/bin" "/usr/bin" "/sbin" "/usr/sbin" "/usr/local/bin" "/usr/local/sbin" "/local/bin" "/local/freeware/bin" "/local/gnu/bin" "/usr/freeware/bin" "/usr/pkg/bin" "/usr/contrib/bin" "/opt/bin" "/opt/sbin" "/opt/local/bin" "/data/home/szu/DrugSensitivity/tools/R/bin")))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
