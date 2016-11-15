@@ -285,6 +285,12 @@ layers configuration. You are free to put any user code."
 
   (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+  (defun szu/clear-R-shell ()
+    (interactive)
+    (let ((old-max comint-buffer-maximum-size))
+      (setq comint-buffer-maximum-size 0)
+      (comint-truncate-buffer)
+      (setq comint-buffer-maximum-size old-max)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

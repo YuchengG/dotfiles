@@ -121,3 +121,6 @@ export LANG=en_US.UTF-8
 alias ctags='/usr/local/bin/ctags'
 
 export RDBASE=/usr/local/share/RDKit
+
+export NVM_DIR="/Users/wangchao/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
