@@ -43,7 +43,11 @@ values."
             latex-build-command "LaTex"
             latex-enable-folding t)
      java
-     python
+     (python :variables
+             python-enable-yapf-format-on-save t
+             python-fill-column 99
+             python-sort-imports-on-save t
+             python-indent-offset 4)
      c-c++
      ess
      imenu-list
@@ -291,6 +295,30 @@ layers configuration. You are free to put any user code."
       (setq comint-buffer-maximum-size 0)
       (comint-truncate-buffer)
       (setq comint-buffer-maximum-size old-max)))
+  (defun szu/python-shell-send-line ()
+    ;; send line to python shell, but not work
+    ;; on multiple lines, such as comma as end
+    ;; of current line.
+    (interactive)
+    (save-excursion
+      (setq script_buffer (format (buffer-name)))
+      (end-of-line)
+      (kill-region (point) (progn (back-to-indentation) (point)))
+      (if (get-buffer "*Python*")
+          (message "")
+        (run-python "ipython" nil nil))
+      (setq py_buffer "*Python*")
+      (switch-to-buffer-other-window py_buffer)
+      (goto-char (buffer-end 1))
+      (yank)
+      (comint-send-input)
+      (switch-to-buffer-other-window script_buffer)
+      (yank))
+    (end-of-line)
+    (next-line))
+  (add-hook 'python-mode-hook
+            (lambda ()
+              (define-key python-mode-map "\C-c\C-n" 'szu/python-shell-send-line)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

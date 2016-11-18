@@ -22,3 +22,6 @@ alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 
 # added by Anaconda2 4.2.0 installer
 export PATH="//anaconda/bin:$PATH"
+
+# added by Anaconda2 4.2.0 installer
+export PATH="//anaconda/bin:$PATH"
