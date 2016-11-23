@@ -52,7 +52,7 @@ values."
      ess
      imenu-list
      (elfeed :variables
-             rmh-elfeed-org-files (list "~/home/songpeng/git-recipes/dotfiles/essfeeds.org")
+             rmh-elfeed-org-files (list "~/home/songpeng/git-recipes/dotfiles/rssfeeds.org")
              ;; elfeed-feeds '(("https://terrytao.wordpress.com/feed/" blog math terrytao)
              ;;                ("http://planet.emacsen.org/atom.xml" blog emacs)
              ;;                ("http://www.reddit.com/r/emacs/.rss" emacs reddit))
