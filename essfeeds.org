@@ -1,0 +1,7 @@
+* Blogs                                                              :elfeed:
+** emacs                                                             :emacs:
+*** http://planet.emacsen.org/atom.xml
+*** http://www.reddit.com/r/emacs/.rss
+*** [[http://emacs.stackexchange.com/feeds][SX]]
+** math                                                               :math:
+*** https://terrytao.wordpress.com/feed/
