@@ -264,12 +264,12 @@ layers configuration. You are free to put any user code."
                                "~/home/songpeng/git-recipes/BeyondPie/GTD/diary_GTD_2016.org"))
   (defun notify-osx (title message)
     (call-process "terminal-notifier"
-    nil 0 nil
-    "-group" "Emacs"
-    "-title" title
-    "-sender" "org.gnu.Emacs"
-    "-message" message
-    "-activate" "org.gnu.Emacs"))
+                  nil 0 nil
+                  "-group" "Emacs"
+                  "-title" title
+                  "-sender" "org.gnu.Emacs"
+                  "-message" message
+                  "-activate" "org.gnu.Emacs"))
   (add-hook 'org-pomodoro-finished-hook
             (lambda ()
               (notify-osx "Pomodoro completed!" "Time for a break.")))
@@ -322,6 +322,7 @@ layers configuration. You are free to put any user code."
   (add-hook 'python-mode-hook
             (lambda ()
               (define-key python-mode-map "\C-c\C-n" 'szu/python-shell-send-line)))
+  (add-to-list 'Info-default-directory-list "~/home/songpeng/git-recipes/dotfiles/info")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
