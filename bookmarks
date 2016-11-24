@@ -1,0 +1,12 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("(sicp) Top"
+ (front-context-string . "\n* Menu:\n\n* UTF:")
+ (rear-context-string . "nuary 10, 2007)\n")
+ (position . 615)
+ (filename . "/Users/wangchao/home/songpeng/git-recipes/dotfiles/info/sicp")
+ (info-node . "Top")
+ (handler . Info-bookmark-jump))
+)
