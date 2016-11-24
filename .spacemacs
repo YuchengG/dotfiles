@@ -322,7 +322,10 @@ layers configuration. You are free to put any user code."
   (add-hook 'python-mode-hook
             (lambda ()
               (define-key python-mode-map "\C-c\C-n" 'szu/python-shell-send-line)))
-  (add-to-list 'Info-default-directory-list "~/home/songpeng/git-recipes/dotfiles/info")
+  ;;(add-to-list 'Info-default-directory-list "~/home/songpeng/git-recipes/dotfiles/info")
+  (add-to-list 'Info-directory-list "~/home/songpeng/git-recipes/dotfiles/info")
+  (setq bookmark-default-file "~/home/songpeng/git-recipes/dotfiles/bookmarks")
+  (setq bookmark-save-flag t) ;; save bookmark when emacs quits.
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
