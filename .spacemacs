@@ -52,12 +52,12 @@ values."
      ess
      imenu-list
      (elfeed :variables
-             rmh-elfeed-org-files (list "/Users/wangchao/home/songpeng/git-recipes/dotfiles/rssfeeds.org")
+             rmh-elfeed-org-files (list "~/home/songpeng/git-recipes/dotfiles/rssfeeds.org")
              elfeed-enable-web-interface t
              url-queue-timeout 30)
      search-engine
      (mu4e :variables
-           mu4e-installation-path "~/Downloads/mu-0.9.9.5/mu4e")
+           mu4e-installation-path "~/.emacs.d/mu-0.9.17/mu4e")
      gnus
      )
 
@@ -358,6 +358,8 @@ layers configuration. You are free to put any user code."
   (setq mu4e-attachment-dir "~/Downloads")
   (setq mu4e-enable-notifications t)
   (mu4e-alert-enable-mode-line-display)
+  (with-eval-after-load 'mu4e-alert
+    (mu4e-alert-set-default-style 'growl))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
