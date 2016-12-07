@@ -18,6 +18,7 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     yaml
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -57,15 +58,18 @@ values."
              url-queue-timeout 30)
      search-engine
      (mu4e :variables
-           mu4e-installation-path "~/.emacs.d/mu-0.9.17/mu4e")
+           mu4e-installation-path "~/.emacs.d/mu-0.9.18/mu4e"
+           mu4e-enable-mode-line t
+           mu4e-enable-notifications t)
      gnus
+     ;;pdf-tools epdfinfo cannot found.
      )
 
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages then consider to create a layer, you can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '(gnugo youdao-dictionary latex-extra)
+   dotspacemacs-additional-packages '(gnugo youdao-dictionary latex-extra geeknote)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -254,6 +258,7 @@ user code here.  The exception is org related code, which should be placed in
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+  (server-start)
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
   (ispell-change-dictionary "american" t)
   (setq gnugo-xpms 'gnugo-imgen-create-xpms)
@@ -289,9 +294,8 @@ layers configuration. You are free to put any user code."
         (quote ((sequence "TODO" "NEXT" "|" "DONE")
                 (sequence "WAITING" "HOLD" "|" "CANCELED" "MOVED" "PHONE" "MEETING"))))
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
-
-  (when (eq system-type 'darwin)
-    (add-to-list 'load-path "/usr/local/Cellar/mu/HEAD/share/emacs/site-lisp/mu4e"))
+  ;; (when (eq system-type 'darwin)
+  ;;   (add-to-list 'load-path "/usr/local/Cellar/mu/HEAD/share/emacs/site-lisp/mu4e"))
 
   (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
@@ -334,11 +338,10 @@ layers configuration. You are free to put any user code."
         mu4e-sent-folder "/Sent Messages"
         mu4e-refile-folder "/Archive"
         mu4e-trash-folder "/Deleted Messages"
-        mu4e-get-mail-command "mbsync -a"
-        mu4e-update-interval nil
         mu4e-compose-signature-auto-include nil
         mu4e-view-show-images t
-        mu4e-view-show-addresses t)
+        mu4e-view-show-addresses t
+        )
   (setq mu4e-maildir-shortcuts
         '(("/INBOX" . ?i)
           ("/Sent Messages" . ?s)
@@ -351,13 +354,11 @@ layers configuration. You are free to put any user code."
         user-full-name "szu")
   (require 'smtpmail)
   (setq message-send-mail-function 'smtpmail-send-it
-        smtpmail-stream-type 'strarttls
+        smtpmail-stream-type 'starttls
         smtpmail-default-smtp-server "smtp.qq.com"
         smtpmail-smtp-server "smtp.qq.com"
         smtpmail-smtp-service 587)
   (setq mu4e-attachment-dir "~/Downloads")
-  (setq mu4e-enable-notifications t)
-  (mu4e-alert-enable-mode-line-display)
   (with-eval-after-load 'mu4e-alert
     (mu4e-alert-set-default-style 'growl))
   )
@@ -387,7 +388,7 @@ layers configuration. You are free to put any user code."
  '(doc-view-continuous t)
  '(elfeed-feeds nil)
  '(evil-want-Y-yank-to-eol t)
- '(fci-rule-color "#073642" t)
+ '(fci-rule-color "#073642")
  '(highlight-changes-colors (quote ("#d33682" "#6c71c4")))
  '(highlight-symbol-colors
    (--map
@@ -418,7 +419,7 @@ layers configuration. You are free to put any user code."
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
  '(package-selected-packages
    (quote
-    (mu4e-maildirs-extension mu4e-alert ht engine-mode ace-jump-mode noflet hide-comnt pcache undo-tree elfeed-web simple-httpd elfeed-goodies elfeed-org elfeed imenu-list latex-extra yapfify uuidgen py-isort org-projectile org-download mwim live-py-mode link-hint git-link flyspell-correct-helm flyspell-correct eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump company-emacs-eclim column-enforce-mode youdao-dictionary helm-itunes eclim ess-smart-equals ess-R-object-popup ess-R-data-view ctable ess julia-mode disaster company-c-headers cmake-mode clang-format pyvenv pytest pyenv-mode py-yapf pip-requirements hy-mode helm-pydoc emacs-eclim cython-mode company-anaconda anaconda-mode pythonic f org zenburn-theme monokai-theme solarized-theme company-auctex auctex-latexmk xterm-color toc-org smeargle shell-pop orgit org-repo-todo org-present org-pomodoro alert log4e gntp org-plus-contrib org-bullets multi-term mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore request helm-flyspell helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flycheck-pos-tip flycheck evil-magit magit magit-popup git-commit with-editor eshell-prompt-extras esh-help diff-hl company-statistics company-quickhelp pos-tip company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete hydra powerline spinner parent-mode projectile pkg-info epl flx smartparens iedit anzu highlight packed helm avy helm-core popup async cdlatex auctex go gnugo hl-todo bracketed-paste ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline smooth-scrolling restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line evil which-key quelpa package-build use-package bind-key bind-map s dash spacemacs-theme)))
+    (yaml-mode geeknote pdf-tools tablist mu4e-maildirs-extension mu4e-alert ht engine-mode ace-jump-mode noflet hide-comnt pcache undo-tree elfeed-web simple-httpd elfeed-goodies elfeed-org elfeed imenu-list latex-extra yapfify uuidgen py-isort org-projectile org-download mwim live-py-mode link-hint git-link flyspell-correct-helm flyspell-correct eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump company-emacs-eclim column-enforce-mode youdao-dictionary helm-itunes eclim ess-smart-equals ess-R-object-popup ess-R-data-view ctable ess julia-mode disaster company-c-headers cmake-mode clang-format pyvenv pytest pyenv-mode py-yapf pip-requirements hy-mode helm-pydoc emacs-eclim cython-mode company-anaconda anaconda-mode pythonic f org zenburn-theme monokai-theme solarized-theme company-auctex auctex-latexmk xterm-color toc-org smeargle shell-pop orgit org-repo-todo org-present org-pomodoro alert log4e gntp org-plus-contrib org-bullets multi-term mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore request helm-flyspell helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flycheck-pos-tip flycheck evil-magit magit magit-popup git-commit with-editor eshell-prompt-extras esh-help diff-hl company-statistics company-quickhelp pos-tip company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete hydra powerline spinner parent-mode projectile pkg-info epl flx smartparens iedit anzu highlight packed helm avy helm-core popup async cdlatex auctex go gnugo hl-todo bracketed-paste ws-butler window-numbering volatile-highlights vi-tilde-fringe spaceline smooth-scrolling restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox page-break-lines open-junk-file neotree move-text macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete highlight-parentheses highlight-numbers highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-args evil-anzu eval-sexp-fu elisp-slime-nav define-word clean-aindent-mode buffer-move auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line evil which-key quelpa package-build use-package bind-key bind-map s dash spacemacs-theme)))
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(safe-local-variable-values
@@ -426,6 +427,7 @@ layers configuration. You are free to put any user code."
     ((Tex-engine . xetex)
      (End . %%%)
      (TeX-command-extra-options . "-shell-escape"))))
+ '(send-mail-function (quote smtpmail-send-it))
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#073642" 0.2))
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")
