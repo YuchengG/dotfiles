@@ -34,8 +34,11 @@ values."
      ;(org :variables
      ;     org-todo-keywords '((sequence "TODO" "DONE" "CANCEL" "WAIT")))
      (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
+            shell-default-shell 'eshell
+            shell-default-height 50
+            shell-default-position 'bottom
+            shell-default-full-span nil
+            shell-enable-smart-eshell t)
      spell-checking
      syntax-checking
      version-control
@@ -60,7 +63,8 @@ values."
      (mu4e :variables
            mu4e-installation-path "~/.emacs.d/mu-0.9.18/mu4e"
            mu4e-enable-mode-line t
-           mu4e-enable-notifications t)
+           mu4e-enable-notifications t
+           mu4e-account-alist nil)
      gnus
      ;;pdf-tools epdfinfo cannot found.
      )
@@ -101,7 +105,7 @@ values."
    ;;                             hybrid-mode-enable-hjkl-bindings nil
    ;;                             hybrid-mode-default-state-backup 'normal)
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
-   dotspacemacs-verbose-loading nil
+   dotspacemacs-verbose-loading t
    ;; Specify the startup banner. Default value is `official', it displays
    ;; the official spacemacs logo. An integer value is the index of text
    ;; banner, `random' chooses a random text banner in `core/banners'
@@ -112,7 +116,7 @@ values."
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'.
    ;; (default '(recents projects))
-   dotspacemacs-startup-lists '(recents projects)
+   dotspacemacs-startup-lists '(recents bookmarks projects)
    ;; Number of recent files to show in the startup buffer. Ignored if
    ;; `dotspacemacs-startup-lists' doesn't include `recents'. (default 5)
    dotspacemacs-startup-recent-list-size 5
@@ -172,10 +176,10 @@ values."
    ;; `find-contrib-file' (SPC f e c) are replaced. (default nil)
    dotspacemacs-use-ido nil
    ;; If non nil, `helm' will try to minimize the space it uses. (default nil)
-   dotspacemacs-helm-resize nil
+   dotspacemacs-helm-resize t
    ;; if non nil, the helm header is hidden when there is only one source.
    ;; (default nil)
-   dotspacemacs-helm-no-header nil
+   dotspacemacs-helm-no-header t
    ;; define the position to display `helm', options are `bottom', `top',
    ;; `left', or `right'. (default 'bottom)
    dotspacemacs-helm-position 'bottom
@@ -193,7 +197,7 @@ values."
    ;; If non nil a progress bar is displayed when spacemacs is loading. This
    ;; may increase the boot time on some systems and emacs builds, set it to
    ;; nil to boost the loading time. (default t)
-   dotspacemacs-loading-progress-bar t
+   dotspacemacs-loading-progress-bar nil
    ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
    ;; (Emacs 24.4+ only)
    dotspacemacs-fullscreen-at-startup nil
@@ -211,7 +215,7 @@ values."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-inactive-transparency 90
+   dotspacemacs-inactive-transparency 110
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
    dotspacemacs-mode-line-unicode-symbols t
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
@@ -221,7 +225,7 @@ values."
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers t
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
@@ -338,10 +342,13 @@ layers configuration. You are free to put any user code."
         mu4e-sent-folder "/Sent Messages"
         mu4e-refile-folder "/Archive"
         mu4e-trash-folder "/Deleted Messages"
-        mu4e-compose-signature-auto-include nil
+        mu4e-compose-signature-auto-include t
         mu4e-view-show-images t
         mu4e-view-show-addresses t
         )
+   (setq mu4e-compose-signature (concat "Songpeng Zu\n"
+                                        "Tsinghua University, Beijing, China\n"
+                                        "https://github.com/songpeng\n"))
   (setq mu4e-maildir-shortcuts
         '(("/INBOX" . ?i)
           ("/Sent Messages" . ?s)
@@ -358,9 +365,36 @@ layers configuration. You are free to put any user code."
         smtpmail-default-smtp-server "smtp.qq.com"
         smtpmail-smtp-server "smtp.qq.com"
         smtpmail-smtp-service 587)
+  (setq mu4e-index-cleanup nil
+        mu4e-index-lazy-check t)
   (setq mu4e-attachment-dir "~/Downloads")
   (with-eval-after-load 'mu4e-alert
     (mu4e-alert-set-default-style 'growl))
+  ;; (setq mu4e-contexts
+  ;;       `( ,(make-mu4e-context
+  ;;            :name "QQ"
+  ;;            :enter-func (lambda () (mu4e-message "Entering QQ context"))
+  ;;            :leave-func (lambda () (mu4e-message "Leaving QQ context"))
+  ;;            :match-func (lambda (msg)
+  ;;                          (when msg
+  ;;                            (mu4e-message-contact-field-matches msg
+  ;;                                                                :to "zusongpeng@qq.com")))
+  ;;            :vars '((user-mail-address . "zusongpeng@qq.com")
+  ;;                    (user-full-name . "szu")
+  ;;                    ))
+  ;;          ,(make-mu4e-context
+  ;;            :name "College"
+  ;;            :enter-func (lambda () (mu4e-message "Switch to the College context"))
+  ;;            :match-func (lambda (msg)
+  ;;                          (when msg
+  ;;                            (mu4e-message-contact-field-matches msg
+  ;;                                                                :to "zsp07@mails.tsinghua.edu.cn")))
+  ;;            :vars '((user-mail-address . "zsp07@mails.tsinghua.edu.cn")
+  ;;                    (user-full-name "szu")
+  ;;                    ))))
+  ;; (setq mu4e-context-policy 'pick-first)
+  ;; (setq mu4e-compose-context-policy nil)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
