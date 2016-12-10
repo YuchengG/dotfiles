@@ -376,8 +376,29 @@ layers configuration. You are free to put any user code."
   (with-eval-after-load 'mu4e-alert
     (mu4e-alert-set-default-style 'growl))
   (setq mu4e-compose-format-flowed t)
+  ;; (setq mu4e-account-alist
+  ;;       '(("qq"
+  ;;          ;; Under each account, set the account-specific variables you want.
+  ;;          (mu4e-sent-messages-behavior delete)
+  ;;          (mu4e-sent-folder "/mail/Sent Messages")
+  ;;          (mu4e-drafts-folder "/mail/Drafts")
+  ;;          (user-mail-address "zusongpeng@qq.com")
+  ;;          (user-full-name "szu")
+  ;;          (smtpmail-default-smtp-server "smtp.qq.com")
+  ;;          (smtpmail-smtp-server "smtp.qq.com")
+  ;;          (smtpmail-smtp-service 587))
+  ;;         ("college"
+  ;;          (mu4e-sent-messages-behavior sent)
+  ;;          (mu4e-sent-folder "/mail_college/Sent Items")
+  ;;          (mu4e-drafts-folder "/mail_college/Drafts")
+  ;;          (user-mail-address "zsp07@mails.tsinghua.edu.cn")
+  ;;          (user-full-name "szu")
+  ;;          (smtpmail-default-smtp-server "mails.tsinghua.edu.cn")
+  ;;          (smtpmail-smtp-server "mails.tsinghua.edu.cn")
+  ;;          (smtpmail-smtp-service 465))))
+  ;; (mu4e/mail-account-reset)
   ;; (setq mu4e-contexts
-  ;;       '( ,(make-mu4e-context
+  ;;       `( ,(make-mu4e-context
   ;;            :name "QQ"
   ;;            :enter-func (lambda () (mu4e-message "Entering QQ context"))
   ;;            :leave-func (lambda () (mu4e-message "Leaving QQ context"))
@@ -387,6 +408,12 @@ layers configuration. You are free to put any user code."
   ;;                                                                :to "zusongpeng@qq.com")))
   ;;            :vars '((user-mail-address . "zusongpeng@qq.com")
   ;;                    (user-full-name . "szu")
+  ;;                    (mu4e-sent-folder . "/mail/Sent Messages")
+  ;;                    (mu4e-drafts-folder . "/mail/Drafts")
+  ;;                    (smtpmail-default-smtp-server . "smtp.qq.com")
+  ;;                    (smtpmail-smtp-server . "smtp.qq.com")
+  ;;                    (smtpmail-smtp-service . 587)
+  ;;                    (smtpmail-stream-type starttls)
   ;;                    ))
   ;;          ,(make-mu4e-context
   ;;            :name "College"
@@ -396,11 +423,16 @@ layers configuration. You are free to put any user code."
   ;;                            (mu4e-message-contact-field-matches msg
   ;;                                                                :to "zsp07@mails.tsinghua.edu.cn")))
   ;;            :vars '((user-mail-address . "zsp07@mails.tsinghua.edu.cn")
-  ;;                    (user-full-name "szu")
+  ;;                    (user-full-name . "szu")
+  ;;                    (mu4e-sent-folder . "/mail_college/Sent Items")
+  ;;                    (mu4e-drafts-folder . "/mail_college/Drafts")
+  ;;                    (smtpmail-default-smtp-server . "mails.tsinghua.edu.cn")
+  ;;                    (smtpmail-smtp-server . "mails.tsinghua.edu.cn")
+  ;;                    (smtpmail-smtp-service . 465)
+  ;;                    (smtpmail-stream-type . starttls)
   ;;                    ))))
   ;; (setq mu4e-context-policy 'pick-first)
   ;; (setq mu4e-compose-context-policy nil)
-
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
