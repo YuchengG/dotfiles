@@ -35,10 +35,9 @@ values."
      ;     org-todo-keywords '((sequence "TODO" "DONE" "CANCEL" "WAIT")))
      (shell :variables
             shell-default-shell 'eshell
-            shell-default-height 50
+            shell-default-height 30
             shell-default-position 'bottom
-            shell-default-full-span nil
-            shell-enable-smart-eshell t)
+            shell-default-full-span t)
      spell-checking
      syntax-checking
      version-control
@@ -168,7 +167,7 @@ values."
    ;; auto-save the file in-place, `cache' to auto-save the file to another
    ;; file stored in the cache directory and `nil' to disable auto-saving.
    ;; (default 'cache)
-   dotspacemacs-auto-save-file-location 'cache
+   dotspacemacs-auto-save-file-location nil
    ;; Maximum number of rollback slots to keep in the cache. (default 5)
    dotspacemacs-max-rollback-slots 5
    ;; If non nil then `ido' replaces `helm' for some commands. For now only
@@ -176,10 +175,10 @@ values."
    ;; `find-contrib-file' (SPC f e c) are replaced. (default nil)
    dotspacemacs-use-ido nil
    ;; If non nil, `helm' will try to minimize the space it uses. (default nil)
-   dotspacemacs-helm-resize t
+   dotspacemacs-helm-resize nil
    ;; if non nil, the helm header is hidden when there is only one source.
    ;; (default nil)
-   dotspacemacs-helm-no-header t
+   dotspacemacs-helm-no-header nil
    ;; define the position to display `helm', options are `bottom', `top',
    ;; `left', or `right'. (default 'bottom)
    dotspacemacs-helm-position 'bottom
@@ -215,7 +214,7 @@ values."
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's inactive or deselected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
-   dotspacemacs-inactive-transparency 110
+   dotspacemacs-inactive-transparency 90
    ;; If non nil unicode symbols are displayed in the mode line. (default t)
    dotspacemacs-mode-line-unicode-symbols t
    ;; If non nil smooth scrolling (native-scrolling) is enabled. Smooth
@@ -225,7 +224,7 @@ values."
    ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
    ;; derivatives. If set to `relative', also turns on relative line numbers.
    ;; (default nil)
-   dotspacemacs-line-numbers t
+   dotspacemacs-line-numbers nil
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
    dotspacemacs-smartparens-strict-mode nil
@@ -337,6 +336,12 @@ layers configuration. You are free to put any user code."
   (add-to-list 'Info-directory-list "~/home/songpeng/git-recipes/dotfiles/info")
   (setq bookmark-default-file "~/home/songpeng/git-recipes/dotfiles/bookmarks")
   (setq bookmark-save-flag t) ;; save bookmark when emacs quits.
+  (autoload 'dired-async-mode "dired-async.el" nil t)
+  (dired-async-mode 1)
+  (async-bytecomp-package-mode 1)
+  (require 'smtpmail-async)
+  (setq send-mail-function 'async-smtpmail-send-it
+        message-send-mail-function 'async-smtpmail-send-it)
   (setq mu4e-maildir "~/mail"
         mu4e-drafts-folder "/Drafts"
         mu4e-sent-folder "/Sent Messages"
@@ -353,7 +358,7 @@ layers configuration. You are free to put any user code."
         '(("/INBOX" . ?i)
           ("/Sent Messages" . ?s)
           ("/Junk" . ?j)
-          ("/Deleted Messages" .?d)
+          ("/Deleted Messages" .?t)
           ))
   (setq mu4e-get-mail-command "offlineimap"
         mu4e-update-interval 300)
@@ -371,7 +376,7 @@ layers configuration. You are free to put any user code."
   (with-eval-after-load 'mu4e-alert
     (mu4e-alert-set-default-style 'growl))
   ;; (setq mu4e-contexts
-  ;;       `( ,(make-mu4e-context
+  ;;       '( ,(make-mu4e-context
   ;;            :name "QQ"
   ;;            :enter-func (lambda () (mu4e-message "Entering QQ context"))
   ;;            :leave-func (lambda () (mu4e-message "Leaving QQ context"))
