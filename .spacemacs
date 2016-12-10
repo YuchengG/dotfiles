@@ -375,6 +375,7 @@ layers configuration. You are free to put any user code."
   (setq mu4e-attachment-dir "~/Downloads")
   (with-eval-after-load 'mu4e-alert
     (mu4e-alert-set-default-style 'growl))
+  (setq mu4e-compose-format-flowed t)
   ;; (setq mu4e-contexts
   ;;       '( ,(make-mu4e-context
   ;;            :name "QQ"
