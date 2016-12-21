@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("(sicp) Foreword"
+(("org-capture-last-stored"
+ (filename . "~/todo.org")
+ (front-context-string . "** TODO [#A] IEE")
+ (rear-context-string)
+ (position . 9))
+("(sicp) Foreword"
  (front-context-string . "Foreword\n*******")
  (rear-context-string . "tion,  Up: Top\n\n")
  (position . 12862)
