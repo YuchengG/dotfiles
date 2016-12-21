@@ -66,6 +66,7 @@ values."
            mu4e-account-alist nil)
      gnus
      ;;pdf-tools epdfinfo cannot found.
+     (pdf-tools :ensure t)
      )
 
    ;; List of additional packages that will be installed without being
@@ -261,6 +262,8 @@ user code here.  The exception is org related code, which should be placed in
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
+  (add-to-list 'load-path "~/.emacs.d/cl-lib/")
+  (require 'cl-lib)
   (server-start)
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
   (ispell-change-dictionary "american" t)
@@ -272,7 +275,8 @@ layers configuration. You are free to put any user code."
     (shell-command "gnugo --help"))
   (global-set-key (kbd "\C-d") 'backward-delete-char)
   (setq org-agenda-files (list "~/home/songpeng/git-recipes/BeyondPie/GTD/tasks-2016.org"
-                               "~/home/songpeng/git-recipes/BeyondPie/GTD/diary_GTD_2016.org"))
+                               "~/home/songpeng/git-recipes/BeyondPie/GTD/diary_GTD_2016.org"
+                               "~/todo.org"))
   (defun notify-osx (title message)
     (call-process "terminal-notifier"
                   nil 0 nil
@@ -376,6 +380,11 @@ layers configuration. You are free to put any user code."
   (with-eval-after-load 'mu4e-alert
     (mu4e-alert-set-default-style 'growl))
   (setq mu4e-compose-format-flowed t)
+  (require 'org-mu4e)
+  (setq org-mu4e-link-query-in-headers-mode nil)
+  (setq org-capture-templates
+        '(("t" "todo" entry (file+headline "~/todo.org" "Tasks")
+           "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")))
   ;; (setq mu4e-account-alist
   ;;       '(("qq"
   ;;          ;; Under each account, set the account-specific variables you want.
