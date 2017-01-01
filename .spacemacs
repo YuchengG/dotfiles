@@ -35,7 +35,7 @@ values."
      ;(org :variables
      ;     org-todo-keywords '((sequence "TODO" "DONE" "CANCEL" "WAIT")))
      (shell :variables
-            shell-default-shell 'eshell
+            shell-default-shell 'multiterm
             shell-default-height 30
             shell-default-position 'bottom
             shell-default-full-span t)
@@ -124,8 +124,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(spacemacs-light
-                         monokai
+   dotspacemacs-themes '(monokai
+                         spacemacs-light
                          spacemacs-dark
                          solarized-light
                          leuven
@@ -388,6 +388,7 @@ layers configuration. You are free to put any user code."
   (setq org-capture-templates
         '(("t" "todo" entry (file+headline "~/todo.org" "Tasks")
            "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")))
+  (spacemacs/toggle-transparency)
   ;; (setq mu4e-account-alist
   ;;       '(("qq"
   ;;          ;; Under each account, set the account-specific variables you want.
