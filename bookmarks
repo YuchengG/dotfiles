@@ -2,7 +2,11 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("org-capture-last-stored"
+(("1-month-mit"
+ (location . "@1-months-ago + mit")
+ (tags)
+ (handler . elfeed-search-bookmark-handler))
+("org-capture-last-stored"
  (filename . "~/todo.org")
  (front-context-string . "** TODO [#A] IEE")
  (rear-context-string)
