@@ -2,16 +2,8 @@
 ** emacs                                                             :emacs:
 *** http://planet.emacsen.org/atom.xml
 *** http://www.reddit.com/r/emacs/.rss
-** math                                                               :math:
-*** https://terrytao.wordpress.com/feed/
 ** programming                                                        :code:
 *** https://isocpp.org/blog/rss
 ** news                                                               :news:
 *** https://www.technologyreview.com/stories.rss                        :mit:
-*** http://feeds.washingtonpost.com/rss/opinions                 :washington:
-*** http://feeds.washingtonpost.com/rss/politics                 :washington:
-*** http://feeds.washingtonpost.com/rss/local                    :washington:
-*** http://feeds.washingtonpost.com/rss/national                 :washington:
 *** http://feeds.washingtonpost.com/rss/world                    :washington:
-*** http://feeds.washingtonpost.com/rss/business                 :washington:
-*** https://news.ycombinator.com/rss                               :hacknews:
