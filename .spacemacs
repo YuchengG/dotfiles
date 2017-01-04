@@ -461,7 +461,7 @@ layers configuration. You are free to put any user code."
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#e090d7" "#8cc4ff" "#eeeeec"])
- '(browse-url-browser-function (quote eww-browse-url))
+ '(browse-url-browser-function (quote browse-url-default-macosx-browser))
  '(compilation-message-face (quote default))
  '(cua-global-mark-cursor-color "#2aa198")
  '(cua-normal-cursor-color "#839496")
