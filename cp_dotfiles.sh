@@ -13,3 +13,6 @@ cp ~/.spacemacs ./
 # cp .bashrc and .bash_profile
 cp ~/.bashrc ./
 cp ~/.bash_profile ./
+
+# cp gnus
+cp ~/.gnus ./
