@@ -8,3 +8,5 @@
 *** https://www.technologyreview.com/stories.rss                        :mit:
 *** http://feeds.washingtonpost.com/rss/world                    :washington:
 *** https://news.ycombinator.com/rss                               :hacknews:
+** research                                                       :research:
+*** http://feeds.feedburner.com/blogspot/gJZg                        :google:
