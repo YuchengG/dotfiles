@@ -23,17 +23,17 @@
 ;; Fetch only part of the article if we can.
 ;; I saw this in someone's .gnus
 (setq gnus-read-active-file 'some)
-;; open attachment
-(eval-after-load 'mailcap
-  '(progn
-     (cond
-      ;; on OSX, maybe change mailcap-mime-data?
-      ((eq system-type 'darwin))
-      ;; on Windows, maybe change mailcap-mime-data?
-      ((eq system-type 'windows-nt))
-      (t
-       ;; Linux, read ~/.mailcap
-       (mailcap-parse-mailcaps)))))
+;; ;; open attachment
+;; (eval-after-load 'mailcap
+;;   '(progn
+;;      (cond
+;;       ;; on OSX, maybe change mailcap-mime-data?
+;;       ((eq system-type 'darwin))
+;;       ;; on Windows, maybe change mailcap-mime-data?
+;;       ((eq system-type 'windows-nt))
+;;       (t
+;;        ;; Linux, read ~/.mailcap
+;;        (mailcap-parse-mailcaps)))))
 
 ;; Tree view for groups.
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
