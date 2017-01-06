@@ -347,48 +347,48 @@ layers configuration. You are free to put any user code."
   (autoload 'dired-async-mode "dired-async.el" nil t)
   (dired-async-mode 1)
   (async-bytecomp-package-mode 1)
-  (require 'smtpmail-async)
-  (setq send-mail-function 'async-smtpmail-send-it
-        message-send-mail-function 'async-smtpmail-send-it)
-  (setq mu4e-maildir "~/mail"
-        mu4e-drafts-folder "/Drafts"
-        mu4e-sent-folder "/Sent Messages"
-        mu4e-refile-folder "/Archive"
-        mu4e-trash-folder "/Deleted Messages"
-        mu4e-compose-signature-auto-include t
-        mu4e-view-show-images t
-        mu4e-view-show-addresses t
-        )
-   (setq mu4e-compose-signature (concat "Songpeng Zu\n"
-                                        "Tsinghua University, Beijing, China\n"
-                                        "https://github.com/songpeng\n"))
-  (setq mu4e-maildir-shortcuts
-        '(("/INBOX" . ?i)
-          ("/Sent Messages" . ?s)
-          ("/Junk" . ?j)
-          ("/Deleted Messages" .?t)
-          ))
-  (setq mu4e-get-mail-command "offlineimap"
-        mu4e-update-interval 300)
-  (setq user-mail-address "zusongpeng@qq.com"
-        user-full-name "szu")
-  (require 'smtpmail)
-  (setq message-send-mail-function 'smtpmail-send-it
-        smtpmail-stream-type 'starttls
-        smtpmail-default-smtp-server "smtp.qq.com"
-        smtpmail-smtp-server "smtp.qq.com"
-        smtpmail-smtp-service 587)
-  (setq mu4e-index-cleanup nil
-        mu4e-index-lazy-check t)
-  (setq mu4e-attachment-dir "~/Downloads")
-  (with-eval-after-load 'mu4e-alert
-    (mu4e-alert-set-default-style 'growl))
-  (setq mu4e-compose-format-flowed t)
-  (require 'org-mu4e)
-  (setq org-mu4e-link-query-in-headers-mode nil)
-  (setq org-capture-templates
-        '(("t" "todo" entry (file+headline "~/todo.org" "Tasks")
-           "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")))
+  ;; (require 'smtpmail-async)
+  ;; (setq send-mail-function 'async-smtpmail-send-it
+  ;;       message-send-mail-function 'async-smtpmail-send-it)
+  ;; (setq mu4e-maildir "~/mail"
+  ;;       mu4e-drafts-folder "/Drafts"
+  ;;       mu4e-sent-folder "/Sent Messages"
+  ;;       mu4e-refile-folder "/Archive"
+  ;;       mu4e-trash-folder "/Deleted Messages"
+  ;;       mu4e-compose-signature-auto-include t
+  ;;       mu4e-view-show-images t
+  ;;       mu4e-view-show-addresses t
+  ;;       )
+  ;;  (setq mu4e-compose-signature (concat "Songpeng Zu\n"
+  ;;                                       "Tsinghua University, Beijing, China\n"
+  ;;                                       "https://github.com/songpeng\n"))
+  ;; (setq mu4e-maildir-shortcuts
+  ;;       '(("/INBOX" . ?i)
+  ;;         ("/Sent Messages" . ?s)
+  ;;         ("/Junk" . ?j)
+  ;;         ("/Deleted Messages" .?t)
+  ;;         ))
+  ;; (setq mu4e-get-mail-command "offlineimap"
+  ;;       mu4e-update-interval 300)
+  ;; (setq user-mail-address "zusongpeng@qq.com"
+  ;;       user-full-name "szu")
+  ;; (require 'smtpmail)
+  ;; (setq message-send-mail-function 'smtpmail-send-it
+  ;;       smtpmail-stream-type 'starttls
+  ;;       smtpmail-default-smtp-server "smtp.qq.com"
+  ;;       smtpmail-smtp-server "smtp.qq.com"
+  ;;       smtpmail-smtp-service 587)
+  ;; (setq mu4e-index-cleanup nil
+  ;;       mu4e-index-lazy-check t)
+  ;; (setq mu4e-attachment-dir "~/Downloads")
+  ;; (with-eval-after-load 'mu4e-alert
+  ;;   (mu4e-alert-set-default-style 'growl))
+  ;; (setq mu4e-compose-format-flowed t)
+  ;; (require 'org-mu4e)
+  ;; (setq org-mu4e-link-query-in-headers-mode nil)
+  ;; (setq org-capture-templates
+  ;;       '(("t" "todo" entry (file+headline "~/todo.org" "Tasks")
+  ;;          "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")))
   (spacemacs/toggle-transparency)
   ;; (setq mu4e-account-alist
   ;;       '(("qq"
