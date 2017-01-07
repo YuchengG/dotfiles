@@ -22,9 +22,13 @@
                       (nnir-search-engine imap)
                       (nnmail-expiry-target "nnimap+gmail:[Gmail]/Trash")
                       (nnmail-expiry-wait 90)))
-;;(add-to-list 'gnus-secondary-select-methods
-;;             '(nnimap "163"
-;;                      (nnimap-address "imap.")))
+(add-to-list 'gnus-secondary-select-methods
+             '(nnimap "163"
+                      (nnimap-address "imap.163.com")
+                      (nnimap-server-port 993)
+                      (nnimap-stream ssl)
+                      (nnir-search-engine imap)
+                      (nnmail-expiry-wait 90)))
 
 (setq gnus-thread-sort-functions
       '(gnus-thread-sort-by-most-recent-date
@@ -105,6 +109,17 @@
         smtpmail-smtp-service 587
         smtpmail-local-domain "homepc"
         gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]"))
+(defun set163 ()
+  (interactive)
+  (message "from 163")
+  (setq user-mail-address "zusongpeng@163.com")
+  (setq message-send-mail-function 'smtpmail-send-it
+        smtpmail-auth-credentials '(("smtp.163.com" 25 "zusongpeng@163.com" nil))
+        smtpmail-default-smtp-server "smtp.163.com"
+        smtpmail-smtp-server "smtp.163.com"
+        smtpmail-smtp-service 25
+        smtpmail-local-domain "homepc"
+        gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]"))
 
 ;; Read HTML mail
 ;; You need install the command line web browser 'w3m' and Emacs plugin 'w3m'
@@ -116,6 +131,7 @@
           '(lambda ()
              (cond ((string-match "qq" gnus-newsgroup-name) (setQQ))
                    ((string-match "gmail" gnus-newsgroup-name) (setGmail))
+                   ((string-match "163" gnus-newsgroup-name) (set163))
                    (t (setTsinghua)))))
 
 ;; set return email address based on incoming email address
@@ -125,7 +141,9 @@
         ((header "to" "zsp07@mails.tsinghua.edu.cn")
          (address "zsp07@mails.tsinghua.edu.cn"))
         ((header "to" "zusongpeng@gmail.com")
-         (address "zusongpeng@gmail.com"))))
+         (address "zusongpeng@gmail.com"))
+        ((header "to" "zusongpeng@163.com")
+         (address "zusongpeng@163.com"))))
 
 (eval-after-load 'gnus-topic
   '(progn
@@ -133,14 +151,14 @@
                                  (("misc" visible))
                                  (("qq" visible))
                                  (("tsinghua" visible))
-                                 (("gmail" visible))))
+                                 (("gmail" visible))
+                                 (("163" visible))))
      (setq gnus-topic-alist '(("qq"
                                "nnimap+qq:INBOX"
                                "nnimap+qq:Sent Messages"
                                "nnimap+qq:Drafts"
                                "nnimap+qq:Deleted Messages")
                               ("gmail"
-                               "[Gmail]/Sent Mail"
                                "nnimap+gmail:INBOX"
                                "nnimap+gmail:[Gmail]/Sent Mail"
                                "nnimap+gmail:[Gmail]/Trash"
@@ -148,6 +166,8 @@
                                "nnimap+gmail:[Gmail]/Starred"
                                "nnimap+gmail:[Gmail]/Drafts"
                                "nnimap+gmail:[Gmail]/All Mail")
+                              ("163"
+                               "nnimap+163:INBOX")
                               ("tsinghua"
                                "nnimap+tsinghua:INBOX"
                                "nnimap+tsinghua:Sent Items"
