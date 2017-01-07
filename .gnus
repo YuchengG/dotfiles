@@ -1,5 +1,5 @@
 (require 'nnir)
-(setq gnus-select-method '(nnml ""))
+;;(setq gnus-select-method '(nnml ""))
 (add-to-list 'gnus-secondary-select-methods
              '(nnimap "qq"
                       (nnimap-address "imap.qq.com")
@@ -69,7 +69,7 @@
 (setq gnus-thread-ignore-subject t)
 
 ;; Personal Information
-(setq user-full-name "szu")
+;;(setq user-full-name "szu")
 ;;(setq user-mail-address "zusongpeng@gmail.com")
 
 (defun setTsinghua ()
