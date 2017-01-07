@@ -2,7 +2,14 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("1-month-mit"
+(("(gnus) Finding the News"
+ (front-context-string . "File: gnus.info,")
+ (rear-context-string)
+ (position . 28809)
+ (filename . "/Applications/Emacs.app/Contents/Resources/info/gnus")
+ (info-node . "Finding the News")
+ (handler . Info-bookmark-jump))
+("1-month-mit"
  (location . "@1-months-ago + mit")
  (tags)
  (handler . elfeed-search-bookmark-handler))
