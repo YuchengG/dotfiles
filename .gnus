@@ -1,4 +1,5 @@
 (require 'nnir)
+(setq gnus-select-method '(nnml ""))
 (add-to-list 'gnus-secondary-select-methods
              '(nnimap "qq"
                       (nnimap-address "imap.qq.com")
@@ -13,6 +14,15 @@
                       (nnimap-stream ssl)
                       (nnir-search-engine imap)
                       (nnmail-expiry-wait 90)))
+(add-to-list 'gnus-secondary-select-methods
+             '(nnimap "gmail"
+                      (nnimap-addres "imap.gmail.com")
+                      (nnimap-server-port 993)
+                      (nnimap-stream ssl)
+                      (nnir-search-engine imap)
+                     ;; (nnmail-expiry-target "nnimap+gmail:[Gmail]/Trash")
+                      (nnmail-expiry-wait 90)))
+
 (setq gnus-thread-sort-functions
       '(gnus-thread-sort-by-most-recent-date
         (not gnus-thread-sort-by-number)))
@@ -60,7 +70,7 @@
 
 ;; Personal Information
 (setq user-full-name "szu")
-;;(setq user-mail-address "zsp07@mails.tsinghua.edu.cn")
+;;(setq user-mail-address "zusongpeng@gmail.com")
 
 (defun setTsinghua ()
   (interactive)
@@ -73,11 +83,6 @@
         smtpmail-smtp-service 25
         smtpmail-local-domain "homepc"
         gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]"))
-;; Read HTML mail
-;; You need install the command line web browser 'w3m' and Emacs plugin 'w3m'
-(setq mm-text-html-renderer 'w3m)
-;; http://www.gnu.org/software/emacs/manual/html_node/gnus/_005b9_002e2_005d.html
-(setq gnus-use-correct-string-widths nil)
 (defun setQQ ()
   (interactive)
   (message "from qq")
@@ -89,10 +94,28 @@
         smtpmail-smtp-service 587
         smtpmail-local-domain "homepc"
         gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]"))
+(defun setGmail ()
+  (interactive)
+  (message "from gmail")
+  (setq user-mail-address "zusongpeng@gmail.com")
+  (setq message-send-mail-function 'smtpmail-send-it
+       ;; smtpmail-auth-credentials '(("smtp.gmail.com" 587 "zusongpeng@gmail.com" nil))
+        smtpmail-default-smtp-server "smtp.gmail.com"
+        smtpmail-smtp-server "smtp.gmail.com"
+        smtpmail-smtp-service 587
+        smtpmail-local-domain "homepc"
+        gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]"))
+
+;; Read HTML mail
+;; You need install the command line web browser 'w3m' and Emacs plugin 'w3m'
+(setq mm-text-html-renderer 'w3m)
+;; http://www.gnu.org/software/emacs/manual/html_node/gnus/_005b9_002e2_005d.html
+(setq gnus-use-correct-string-widths nil)
 
 (add-hook 'message-mode-hook
           '(lambda ()
              (cond ((string-match "qq" gnus-newsgroup-name) (setQQ))
+                   ((string-match "gmail" gnus-newsgroup-name) (setGmail))
                    (t (setTsinghua)))))
 
 ;; set return email address based on incoming email address
@@ -100,19 +123,29 @@
       '(((header "to" "zusongpeng@qq.com")
          (address "zusongpeng@qq.com"))
         ((header "to" "zsp07@mails.tsinghua.edu.cn")
-         (address "zsp07@mails.tsinghua.edu.cn"))))
+         (address "zsp07@mails.tsinghua.edu.cn"))
+        ((header "to" "zusongpeng@gmail.com")
+         (address "zusongpeng@gmail.com"))))
 
 (eval-after-load 'gnus-topic
   '(progn
      (setq gnus-topic-topology '(("Gnus" visible)
                                  (("misc" visible))
-                                 (("qq" visible))
-                                 (("tsinghua" visible))))
+                                 (("qq" visible nil nil))
+                                 (("tsinghua" visible nil nil))
+                                 (("gmail" visible nil nil))))
      (setq gnus-topic-alist '(("qq"
                                "nnimap+qq:INBOX"
                                "nnimap+qq:Sent Messages"
                                "nnimap+qq:Drafts"
                                "nnimap+qq:Deleted Messages")
+                              ("gmail")
+                              ;; ("gmail"
+                              ;;  "INBOX"
+                              ;;  "[Gmail]/Sent Mail"
+                              ;;  "[Gmail]/Trash"
+                              ;;  "Sent Messages"
+                              ;;  "Drafts")
                               ("tsinghua"
                                "nnimap+tsinghua:INBOX"
                                "nnimap+tsinghua:Sent Items"
@@ -123,3 +156,12 @@
                                "nnfolder+archive:sent.2017"
                                "nndraft:drafts")
                               ("Gnus")))))
+
+(defun my-gnus-group-list-subscribed-groups ()
+  "List all subscribed groups with or without un-read messages"
+  (interactive)
+  (gnus-group-list-all-groups 5))
+
+(define-key gnus-group-mode-map
+  ;; list all the subscribed groups even they contain zero un-read messages
+  (kbd "o") 'my-gnus-group-list-subscribed-groups)
