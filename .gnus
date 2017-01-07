@@ -1,25 +1,35 @@
 (require 'nnir)
 (add-to-list 'gnus-secondary-select-methods
-             '(nnimap "tsinghua"
-                      (nnimap-address "mails.tsinghua.edu.cn")
-                      (nnimap-server-port 993)
-                      (nnimap-stream ssl)
-                      (nnir-server-to-search-engine imap)
-                      (nnmail-expiry-wait 90)))
-(add-to-list 'gnus-secondary-select-methods
              '(nnimap "qq"
                       (nnimap-address "imap.qq.com")
                       (nnimap-server-port 993)
                       (nnimap-stream ssl)
-                      (nnir-server-to-search-engine imap)
+                      (nnir-search-engine imap)
                       (nnmail-expiry-wait 90)))
-
+(add-to-list 'gnus-secondary-select-methods
+             '(nnimap "tsinghua"
+                      (nnimap-address "mails.tsinghua.edu.cn")
+                      (nnimap-server-port 993)
+                      (nnimap-stream ssl)
+                      (nnir-search-engine imap)
+                      (nnmail-expiry-wait 90)))
 (setq gnus-thread-sort-functions
       '(gnus-thread-sort-by-most-recent-date
         (not gnus-thread-sort-by-number)))
 
 ;; NO 'passive
 (setq gnus-use-cache t)
+;; BBDB: Address list
+;;(add-to-list 'load-path "/where/you/place/bbdb/")
+(require 'bbdb)
+(bbdb-initialize 'message 'gnus 'sendmail)
+(add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
+(setq bbdb/mail-auto-create-p t
+      bbdb/news-auto-create-p t)
+(add-hook 'message-mode-hook
+          '(lambda ()
+             (flyspell-mode t)
+             (local-set-key "<TAB>" 'bbdb-complete-name)))
 ;; Fetch only part of the article if we can.
 ;; I saw this in someone's .gnus
 (setq gnus-read-active-file 'some)
@@ -47,6 +57,10 @@
 ;; look at 'In-Reply-To:' and 'References:' headers.
 (setq gnus-thread-hide-subtree t)
 (setq gnus-thread-ignore-subject t)
+
+;; Personal Information
+(setq user-full-name "szu")
+;;(setq user-mail-address "zsp07@mails.tsinghua.edu.cn")
 
 (defun setTsinghua ()
   (interactive)
@@ -80,3 +94,32 @@
           '(lambda ()
              (cond ((string-match "qq" gnus-newsgroup-name) (setQQ))
                    (t (setTsinghua)))))
+
+;; set return email address based on incoming email address
+(setq gnus-posting-styles
+      '(((header "to" "zusongpeng@qq.com")
+         (address "zusongpeng@qq.com"))
+        ((header "to" "zsp07@mails.tsinghua.edu.cn")
+         (address "zsp07@mails.tsinghua.edu.cn"))))
+
+(eval-after-load 'gnus-topic
+  '(progn
+     (setq gnus-topic-topology '(("Gnus" visible)
+                                 (("misc" visible))
+                                 (("qq" visible))
+                                 (("tsinghua" visible))))
+     (setq gnus-topic-alist '(("qq"
+                               "nnimap+qq:INBOX"
+                               "nnimap+qq:Sent Messages"
+                               "nnimap+qq:Drafts"
+                               "nnimap+qq:Deleted Messages")
+                              ("tsinghua"
+                               "nnimap+tsinghua:INBOX"
+                               "nnimap+tsinghua:Sent Items"
+                               "nnimap+tsinghua:Trash"
+                               "nnimap+tsinghua:Drafts"
+                               "nnimap+tsinghua:Junk E-mail")
+                              ("misc"
+                               "nnfolder+archive:sent.2017"
+                               "nndraft:drafts")
+                              ("Gnus")))))
