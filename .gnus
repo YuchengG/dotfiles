@@ -16,12 +16,15 @@
                       (nnmail-expiry-wait 90)))
 (add-to-list 'gnus-secondary-select-methods
              '(nnimap "gmail"
-                      (nnimap-addres "imap.gmail.com")
+                      (nnimap-address "imap.gmail.com")
                       (nnimap-server-port "imaps")
                       (nnimap-stream ssl)
                       (nnir-search-engine imap)
-                     ;; (nnmail-expiry-target "nnimap+gmail:[Gmail]/Trash")
+                      (nnmail-expiry-target "nnimap+gmail:[Gmail]/Trash")
                       (nnmail-expiry-wait 90)))
+;;(add-to-list 'gnus-secondary-select-methods
+;;             '(nnimap "163"
+;;                      (nnimap-address "imap.")))
 
 (setq gnus-thread-sort-functions
       '(gnus-thread-sort-by-most-recent-date
@@ -40,10 +43,7 @@
           '(lambda ()
              (flyspell-mode t)
              (local-set-key "<TAB>" 'bbdb-complete-name)))
-;; Fetch only part of the article if we can.
-;; I saw this in someone's .gnus
-(setq gnus-read-active-file 'some)
-;; ;; open attachment
+;; open attachment
 ;; (eval-after-load 'mailcap
 ;;   '(progn
 ;;      (cond
@@ -69,7 +69,7 @@
 (setq gnus-thread-ignore-subject t)
 
 ;; Personal Information
-;;(setq user-full-name "szu")
+(setq user-full-name "szu")
 ;;(setq user-mail-address "zusongpeng@gmail.com")
 
 (defun setTsinghua ()
@@ -131,21 +131,23 @@
   '(progn
      (setq gnus-topic-topology '(("Gnus" visible)
                                  (("misc" visible))
-                                 (("qq" visible nil nil))
-                                 (("tsinghua" visible nil nil))
-                                 (("gmail" visible nil nil))))
+                                 (("qq" visible))
+                                 (("tsinghua" visible))
+                                 (("gmail" visible))))
      (setq gnus-topic-alist '(("qq"
                                "nnimap+qq:INBOX"
                                "nnimap+qq:Sent Messages"
                                "nnimap+qq:Drafts"
                                "nnimap+qq:Deleted Messages")
-                              ("gmail")
-                              ;; ("gmail"
-                              ;;  "INBOX"
-                              ;;  "[Gmail]/Sent Mail"
-                              ;;  "[Gmail]/Trash"
-                              ;;  "Sent Messages"
-                              ;;  "Drafts")
+                              ("gmail"
+                               "[Gmail]/Sent Mail"
+                               "nnimap+gmail:INBOX"
+                               "nnimap+gmail:[Gmail]/Sent Mail"
+                               "nnimap+gmail:[Gmail]/Trash"
+                               "nnimap+gmail:[Gmail]/Important"
+                               "nnimap+gmail:[Gmail]/Starred"
+                               "nnimap+gmail:[Gmail]/Drafts"
+                               "nnimap+gmail:[Gmail]/All Mail")
                               ("tsinghua"
                                "nnimap+tsinghua:INBOX"
                                "nnimap+tsinghua:Sent Items"
