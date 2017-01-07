@@ -17,7 +17,7 @@
 (add-to-list 'gnus-secondary-select-methods
              '(nnimap "gmail"
                       (nnimap-addres "imap.gmail.com")
-                      (nnimap-server-port 993)
+                      (nnimap-server-port "imaps")
                       (nnimap-stream ssl)
                       (nnir-search-engine imap)
                      ;; (nnmail-expiry-target "nnimap+gmail:[Gmail]/Trash")
@@ -165,3 +165,5 @@
 (define-key gnus-group-mode-map
   ;; list all the subscribed groups even they contain zero un-read messages
   (kbd "o") 'my-gnus-group-list-subscribed-groups)
+;; Ignore certificate hostname.
+(setq starttls-extra-arguments '("--insecure"))
