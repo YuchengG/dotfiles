@@ -1,4 +1,6 @@
 (require 'nnir)
+(setq gnus-select-method '(nntp "news.gmane.org"))
+(add-to-list 'gnus-secondary-select-methods '(nntp "news.gnus.org"))
 ;;(setq gnus-select-method '(nnml ""))
 (add-to-list 'gnus-secondary-select-methods
              '(nnimap "qq"
@@ -74,7 +76,7 @@
 
 ;; Personal Information
 (setq user-full-name "szu")
-;;(setq user-mail-address "zusongpeng@gmail.com")
+(setq user-mail-address "zusongpeng@gmail.com")
 
 (defun setTsinghua ()
   (interactive)
