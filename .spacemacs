@@ -80,7 +80,8 @@ values."
                                       geeknote
                                       bbdb
                                       w3m
-                                      counsel-bbdb)
+                                      counsel-bbdb
+                                      cdlatex)
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -313,7 +314,16 @@ layers configuration. You are free to put any user code."
   ;;   (add-to-list 'load-path "/usr/local/Cellar/mu/HEAD/share/emacs/site-lisp/mu4e"))
 
   (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
+
+  ;; turn on cdlatex minor mode in latex and org.
+  (add-hook 'LaTeX-mode-hook 'turn-on-cdlatex)
+  (add-hook 'latex-mode-hook 'turn-on-cdlatex)
+  (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
+
+  ;; set tramp
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
+
+  ;; set org chinese font output
   (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
                                 "xelatex -interaction nonstopmode %f"))
   (defun szu/clear-R-shell ()
