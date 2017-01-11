@@ -55,10 +55,10 @@ values."
      c-c++
      ess
      imenu-list
-     (elfeed :variables
-             rmh-elfeed-org-files (list "~/home/songpeng/git-recipes/dotfiles/rssfeeds.org")
-             elfeed-enable-web-interface t
-             url-queue-timeout 30)
+     ;; (elfeed :variables
+     ;;         rmh-elfeed-org-files (list "~/home/songpeng/git-recipes/dotfiles/rssfeeds.org")
+     ;;         elfeed-enable-web-interface t
+     ;;         url-queue-timeout 30)
      search-engine
      ;; (mu4e :variables
      ;;       mu4e-installation-path "~/.emacs.d/mu-0.9.18/mu4e"
