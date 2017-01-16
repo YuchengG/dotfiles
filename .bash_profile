@@ -10,6 +10,7 @@ export PATH="/Library/TeX/texbin/:$PATH"
 # added by szu, boost library.
 # What is the different between local/lib and lcoal/Cellular/boost?
 export PATH="/usr/local/lib:$PATH"
+export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/Cellar/boost/1.60.0_1/:$PATH"
 export DYLD_LIBRARY_PATH=/usr/local/Cellar/boost/1.60.0_1/lib/:$DYLD_LIBRARY_PATH
 # added by szu, load .bashrc
