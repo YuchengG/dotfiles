@@ -286,7 +286,7 @@ layers configuration. You are free to put any user code."
   ;; set for java and scala to use ensime.
   (use-package ensime
     :commands ensime ensime-mode)
-  (add-hook 'java-mode-hook 'ensime-mode)
+  ;(add-hook 'java-mode-hook 'ensime-mode)
   (add-hook 'scala-mode-hook 'ensime-mode)
   (use-package sbt-mode
     :commands sbt-start sbt-command
@@ -295,6 +295,10 @@ layers configuration. You are free to put any user code."
      'minibuffer-complete-word
      'self-insert-command
      minibuffer-local-completion-map))
+  ;; set for eclim
+  (setq eclim-eclipse-dirs "/Applications/Eclipse.app/Contents/MacOS/eclipse"
+        eclim-executable "/Applications/Eclipse.app/Contents/Eclipse/eclim"
+        eclimd-executable "/Applications/Eclipse.app/Contents/Eclipse/eclimd")
   ;; start server
   (server-start)
   (add-hook 'doc-view-mode-hook 'auto-revert-mode)
