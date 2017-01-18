@@ -19,10 +19,4 @@ export DYLD_LIBRARY_PATH=/usr/local/Cellar/boost/1.60.0_1/lib/:$DYLD_LIBRARY_PAT
 # added by szu
 alias ls='ls -G'
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
-
-
-# added by Anaconda2 4.2.0 installer
-export PATH="//anaconda/bin:$PATH"
-
-# added by Anaconda2 4.2.0 installer
-export PATH="//anaconda/bin:$PATH"
+alias git='/usr/local/bin/git'
