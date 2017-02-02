@@ -36,6 +36,7 @@ values."
      ;     org-todo-keywords '((sequence "TODO" "DONE" "CANCEL" "WAIT")))
      (shell :variables
             shell-default-shell 'multiterm
+            shell-default-term-shell "/bin/zsh"
             shell-default-height 30
             shell-default-position 'bottom
             shell-default-full-span t)
@@ -73,6 +74,7 @@ values."
      gnus
      ;;pdf-tools epdfinfo cannot found.
      (pdf-tools :ensure t)
+     (evernote)
      )
 
    ;; List of additional packages that will be installed without being
@@ -424,105 +426,7 @@ layers configuration. You are free to put any user code."
   (autoload 'dired-async-mode "dired-async.el" nil t)
   (dired-async-mode 1)
   (async-bytecomp-package-mode 1)
-  ;; (require 'smtpmail-async)
-  ;; (setq send-mail-function 'async-smtpmail-send-it
-  ;;       message-send-mail-function 'async-smtpmail-send-it)
-  ;; (setq mu4e-maildir "~/mail"
-  ;;       mu4e-drafts-folder "/Drafts"
-  ;;       mu4e-sent-folder "/Sent Messages"
-  ;;       mu4e-refile-folder "/Archive"
-  ;;       mu4e-trash-folder "/Deleted Messages"
-  ;;       mu4e-compose-signature-auto-include t
-  ;;       mu4e-view-show-images t
-  ;;       mu4e-view-show-addresses t
-  ;;       )
-  ;;  (setq mu4e-compose-signature (concat "Songpeng Zu\n"
-  ;;                                       "Tsinghua University, Beijing, China\n"
-  ;;                                       "https://github.com/songpeng\n"))
-  ;; (setq mu4e-maildir-shortcuts
-  ;;       '(("/INBOX" . ?i)
-  ;;         ("/Sent Messages" . ?s)
-  ;;         ("/Junk" . ?j)
-  ;;         ("/Deleted Messages" .?t)
-  ;;         ))
-  ;; (setq mu4e-get-mail-command "offlineimap"
-  ;;       mu4e-update-interval 300)
-  ;; (setq user-mail-address "zusongpeng@qq.com"
-  ;;       user-full-name "szu")
-  ;; (require 'smtpmail)
-  ;; (setq message-send-mail-function 'smtpmail-send-it
-  ;;       smtpmail-stream-type 'starttls
-  ;;       smtpmail-default-smtp-server "smtp.qq.com"
-  ;;       smtpmail-smtp-server "smtp.qq.com"
-  ;;       smtpmail-smtp-service 587)
-  ;; (setq mu4e-index-cleanup nil
-  ;;       mu4e-index-lazy-check t)
-  ;; (setq mu4e-attachment-dir "~/Downloads")
-  ;; (with-eval-after-load 'mu4e-alert
-  ;;   (mu4e-alert-set-default-style 'growl))
-  ;; (setq mu4e-compose-format-flowed t)
-  ;; (require 'org-mu4e)
-  ;; (setq org-mu4e-link-query-in-headers-mode nil)
-  ;; (setq org-capture-templates
-  ;;       '(("t" "todo" entry (file+headline "~/todo.org" "Tasks")
-  ;;          "* TODO [#A] %?\nSCHEDULED: %(org-insert-time-stamp (org-read-date nil t \"+0d\"))\n%a\n")))
-  ;; (setq mu4e-account-alist
-  ;;       '(("qq"
-  ;;          ;; Under each account, set the account-specific variables you want.
-  ;;          (mu4e-sent-messages-behavior delete)
-  ;;          (mu4e-sent-folder "/mail/Sent Messages")
-  ;;          (mu4e-drafts-folder "/mail/Drafts")
-  ;;          (user-mail-address "zusongpeng@qq.com")
-  ;;          (user-full-name "szu")
-  ;;          (smtpmail-default-smtp-server "smtp.qq.com")
-  ;;          (smtpmail-smtp-server "smtp.qq.com")
-  ;;          (smtpmail-smtp-service 587))
-  ;;         ("college"
-  ;;          (mu4e-sent-messages-behavior sent)
-  ;;          (mu4e-sent-folder "/mail_college/Sent Items")
-  ;;          (mu4e-drafts-folder "/mail_college/Drafts")
-  ;;          (user-mail-address "zsp07@mails.tsinghua.edu.cn")
-  ;;          (user-full-name "szu")
-  ;;          (smtpmail-default-smtp-server "mails.tsinghua.edu.cn")
-  ;;          (smtpmail-smtp-server "mails.tsinghua.edu.cn")
-  ;;          (smtpmail-smtp-service 465))))
-  ;; (mu4e/mail-account-reset)
-  ;; (setq mu4e-contexts
-  ;;       `( ,(make-mu4e-context
-  ;;            :name "QQ"
-  ;;            :enter-func (lambda () (mu4e-message "Entering QQ context"))
-  ;;            :leave-func (lambda () (mu4e-message "Leaving QQ context"))
-  ;;            :match-func (lambda (msg)
-  ;;                          (when msg
-  ;;                            (mu4e-message-contact-field-matches msg
-  ;;                                                                :to "zusongpeng@qq.com")))
-  ;;            :vars '((user-mail-address . "zusongpeng@qq.com")
-  ;;                    (user-full-name . "szu")
-  ;;                    (mu4e-sent-folder . "/mail/Sent Messages")
-  ;;                    (mu4e-drafts-folder . "/mail/Drafts")
-  ;;                    (smtpmail-default-smtp-server . "smtp.qq.com")
-  ;;                    (smtpmail-smtp-server . "smtp.qq.com")
-  ;;                    (smtpmail-smtp-service . 587)
-  ;;                    (smtpmail-stream-type starttls)
-  ;;                    ))
-  ;;          ,(make-mu4e-context
-  ;;            :name "College"
-  ;;            :enter-func (lambda () (mu4e-message "Switch to the College context"))
-  ;;            :match-func (lambda (msg)
-  ;;                          (when msg
-  ;;                            (mu4e-message-contact-field-matches msg
-  ;;                                                                :to "zsp07@mails.tsinghua.edu.cn")))
-  ;;            :vars '((user-mail-address . "zsp07@mails.tsinghua.edu.cn")
-  ;;                    (user-full-name . "szu")
-  ;;                    (mu4e-sent-folder . "/mail_college/Sent Items")
-  ;;                    (mu4e-drafts-folder . "/mail_college/Drafts")
-  ;;                    (smtpmail-default-smtp-server . "mails.tsinghua.edu.cn")
-  ;;                    (smtpmail-smtp-server . "mails.tsinghua.edu.cn")
-  ;;                    (smtpmail-smtp-service . 465)
-  ;;                    (smtpmail-stream-type . starttls)
-  ;;                    ))))
-  ;; (setq mu4e-context-policy 'pick-first)
-  ;; (setq mu4e-compose-context-policy nil)
+  (setq multi-term-program "/bin/zsh")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
