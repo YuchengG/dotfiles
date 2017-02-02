@@ -16,3 +16,6 @@ cp ~/.bash_profile ./
 
 # cp gnus
 cp ~/.gnus ./
+
+# cp zshrc
+cp ~/.zshrc  ./
