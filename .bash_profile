@@ -21,3 +21,6 @@ export CLASSPATH=".;/Library/Java/Extensions/mysql-connector-java-5.1.40-bin.jar
 alias ls='ls -G'
 alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 alias git='/usr/local/bin/git'
+
+# added by szu, pythonpath.
+export PYTHONPATH="/Library/Python/2.7/site-packages/"
