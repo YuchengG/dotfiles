@@ -19,3 +19,6 @@ cp ~/.gnus ./
 
 # cp zshrc
 cp ~/.zshrc  ./
+
+# cp .pydistutils.cfg 
+cp ~/.pydistutils.cfg
