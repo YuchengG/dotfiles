@@ -113,7 +113,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-[ -r /home/zusongpeng/.byobu/prompt ] && . /home/zusongpeng/.byobu/prompt   #byobu-prompt#
 
 # Language
 export LC_ALL=en_US.UTF-8
@@ -122,5 +121,3 @@ alias ctags='/usr/local/bin/ctags'
 
 export RDBASE=/usr/local/share/RDKit
 
-export NVM_DIR="/Users/wangchao/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
