@@ -56,7 +56,7 @@ values."
      java
      (python :variables
              python-enable-yapf-format-on-save t
-             python-fill-column 99
+             python-fill-column 79
              python-sort-imports-on-save t
              python-indent-offset 4)
      c-c++
@@ -432,9 +432,10 @@ layers configuration. You are free to put any user code."
   (setq multi-term-program "/bin/zsh")
   ;; python
   (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
-  (setq py-autopep9-options '("--max-line-length=100"))
+  (setq py-autopep9-options '("--max-line-length=79"))
   (when (executable-find "ipython")
     (setq python-shell-interpreter "ipython"))
+  (setq python-shell-interpreter-args "-i --simple-prompt --pylab")
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
