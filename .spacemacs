@@ -172,7 +172,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 14
+                               :size 16
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -388,6 +388,13 @@ layers configuration. You are free to put any user code."
   (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
   (setq tramp-ssh-controlmaster-options
         "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
+  (setq tramp-chunksize 500)
+  ;;(eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
+  (setq tramp-completion-reread-directory-timeout nil)
+  (setq vc-ignore-dir-regexp
+        (format "\\(%s\\)\\|\\(%s\\)"
+                vc-ignore-dir-regexp
+                tramp-file-name-regexp))
 
   ;; set org chinese font output
   (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
@@ -437,6 +444,21 @@ layers configuration. You are free to put any user code."
   (when (executable-find "ipython")
     (setq python-shell-interpreter "ipython"))
   (setq python-shell-interpreter-args "-i --simple-prompt --pylab")
+  ;; nxml fold
+  (require 'hideshow)
+  (require 'sgml-mode)
+  (require 'nxml-mode)
+  (add-to-list 'hs-special-modes-alist
+               '(nxml-mode
+                 "<!--\\|<[^/>]*[^/]>"
+                 "-->\\|</[^/>]*[^/]>"
+
+                 "<!--"
+                 sgml-skip-tag-forward
+                 nil))
+  (add-hook 'nxml-mode-hook 'hs-minor-mode)
+  ;; optional key bindings, easier than hs defaults
+  (define-key nxml-mode-map (kbd "C-c h") 'hs-toggle-hiding)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
