@@ -2,6 +2,8 @@
 
 cp ./.spacemacs  ~/
 
+cp -r  ./dotspacemacsPrivate/  ~/.emacs.d/private/
+
 cp ./.zshrc  ~/
 
 cp ./.bash_profile  ~/

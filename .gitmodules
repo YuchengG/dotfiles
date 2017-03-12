@@ -1,0 +1,6 @@
+[submodule "elpy"]
+	path = elpy
+	url = https://github.com/TheBB/elpy-layer.git
+[submodule "dotspacemacsPrivate/elpy"]
+	path = dotspacemacsPrivate/elpy
+	url = https://github.com/TheBB/elpy-layer.git

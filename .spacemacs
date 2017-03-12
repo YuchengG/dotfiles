@@ -18,6 +18,7 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     python
      csv
      html
      yaml
@@ -36,7 +37,7 @@ values."
      ;(org :variables
      ;     org-todo-keywords '((sequence "TODO" "DONE" "CANCEL" "WAIT")))
      (shell :variables
-            shell-default-shell 'multiterm
+            shell-default-shell 'eshell
             shell-default-term-shell "/bin/zsh"
             shell-default-height 30
             shell-default-position 'bottom
@@ -54,11 +55,11 @@ values."
             scala-use-unicode-arrows t
             scala-auto-start-ensime t)
      java
-     (python :variables
-             python-enable-yapf-format-on-save t
-             python-fill-column 79
-             python-sort-imports-on-save t
-             python-indent-offset 4)
+     ;; (python :variables
+     ;;         python-enable-yapf-format-on-save t
+     ;;         python-fill-column 79
+     ;;         python-sort-imports-on-save t
+     ;;         python-indent-offset 4)
      c-c++
      ess
      imenu-list
@@ -66,16 +67,16 @@ values."
      ;;         rmh-elfeed-org-files (list "~/home/songpeng/git-recipes/dotfiles/rssfeeds.org")
      ;;         elfeed-enable-web-interface t
      ;;         url-queue-timeout 30)
-     search-engine
+     ;;search-engine
      ;; (mu4e :variables
      ;;       mu4e-installation-path "~/.emacs.d/mu-0.9.18/mu4e"
      ;;       mu4e-enable-mode-line t
      ;;       mu4e-enable-notifications t
      ;;       mu4e-account-alist nil)
-     gnus
+     ;;gnus
      ;;pdf-tools epdfinfo cannot found.
      (pdf-tools :ensure t)
-     (evernote)
+     ;;(evernote)
      )
 
    ;; List of additional packages that will be installed without being
@@ -97,7 +98,8 @@ values."
                                       py-autopep8
                                       elpy)
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(smartparens
+                                    semantic)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configurat ion-layers'. (default t)
@@ -172,7 +174,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 16
+                               :size 15
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)

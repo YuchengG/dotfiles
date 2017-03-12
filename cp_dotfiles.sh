@@ -10,6 +10,9 @@
 # cp dotspacemacs based spacemacs config
 cp ~/.spacemacs ./
 
+# cp private configures.
+cp -r ~/.emacs.d/private/ ./dotspacemacsPrivate/
+
 # cp .bashrc and .bash_profile
 cp ~/.bashrc ./
 cp ~/.bash_profile ./
