@@ -172,7 +172,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 16
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -295,6 +295,8 @@ It is called immediately after `dotspacemacs/init'.  You are free to put almost 
 user code here.  The exception is org related code, which should be placed in
 `dotspacemacs/user-config'."
   ;;(fset 'xterm-color-unfontify-region 'font-lock-default-unfontify-region)
+  (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
+  (push '("ensime" . "melpa-stable") package-pinned-packages)
   (my-setup-indent 4)
 )
 
@@ -310,8 +312,12 @@ layers configuration. You are free to put any user code."
   ;;(setq-default default-tab-width 4)
   ;; set for java and scala to use ensime.
   (use-package ensime
-    :commands ensime ensime-mode)
-  ;(add-hook 'java-mode-hook 'ensime-mode)
+    :commands ensime ensime-mode
+    :ensure t
+    :pin melpa-stable)
+  (setq ensime-startup-notification nil)
+  (setq ensime-startup-snapshot-notification nil)
+  ;;(add-hook 'java-mode-hook 'ensime-mode)
   (add-hook 'scala-mode-hook 'ensime-mode)
   (use-package sbt-mode
     :commands sbt-start sbt-command
@@ -484,6 +490,7 @@ layers configuration. You are free to put any user code."
    (quote
     ("6df30cfb75df80e5808ac1557d5cc728746c8dbc9bc726de35b15180fa6e0ad9" "0ae09e79d0a3a7c9f31522fa325c7b9f248e5f5481e9b4a0c3bb9f3a91f221f1" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(doc-view-continuous t)
+ '(eclimd-default-workspace "~/hulu/reco/")
  '(elfeed-feeds nil)
  '(evil-want-Y-yank-to-eol t)
  '(fci-rule-color "#073642" t)
