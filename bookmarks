@@ -2,7 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("(gnus) Finding the News"
+(("cdlatex.el"
+ (filename . "~/.emacs.d/elpa/cdlatex-20140707.426/cdlatex.el")
+ (front-context-string . "`\n  \"Prefix key ")
+ (rear-context-string . "-symbol-prefix ?")
+ (position . 19354))
+("(gnus) Finding the News"
  (front-context-string . "File: gnus.info,")
  (rear-context-string)
  (position . 28809)
