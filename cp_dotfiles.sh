@@ -25,3 +25,4 @@ cp ~/.zshrc  ./
 
 # cp .pydistutils.cfg 
 cp ~/.pydistutils.cfg ./
+
