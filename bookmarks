@@ -2,7 +2,14 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("cdlatex.el"
+(("(emacs) Dired"
+ (front-context-string . "\nDired makes an ")
+ (rear-context-string . "***************\n")
+ (position . 1133827)
+ (filename . "/Applications/Emacs.app/Contents/Resources/info/emacs")
+ (info-node . "Dired")
+ (handler . Info-bookmark-jump))
+("cdlatex.el"
  (filename . "~/.emacs.d/elpa/cdlatex-20140707.426/cdlatex.el")
  (front-context-string . "`\n  \"Prefix key ")
  (rear-context-string . "-symbol-prefix ?")

@@ -1,7 +1,7 @@
+export TERM="xterm-256color"
 # If you come from bash you might have to change your $PATH.
-#export PATH=$HOME/bin:/usr/local/bin:$PATH
-#export PYTHONPATH="/Library/Python/2.7/site-packages/"
-#export PYTHONPATH="$HOME/Library/Python/2.7/lib/python/site-packages/:$PYTHONPATH"
+export JAVA_HOME=$(/usr/libexec/java_home)
+export FIREWORK_HOME="/Users/songpeng.zu/hulu/firework-0.2.0/"
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 

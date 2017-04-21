@@ -89,11 +89,11 @@ alias ls='ls -G'
 alias ll='ls -alFG'
 alias la='ls -AG'
 alias l='ls -CFG'
-alias git='/usr/local/git/bin/git'
+alias git='/usr/local/bin/git'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
+alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -119,5 +119,17 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 alias ctags='/usr/local/bin/ctags'
 
-export RDBASE=/usr/local/share/RDKit
+export RDBASE="/usr/local/share/RDKit"
 
+export PATH="/Library/TeX/texbin/:/user/local/bin:/usr/local/lib:$PATH"
+
+export DYLD_LIBRARY_PATH="/usr/local/Cellar/boost/1.60.0_1/lib/:$DYLD_LIBRARY_PATH"
+export CLASSPATH=".;/Library/Java/Extensions/mysql-connector-java-5.1.40-bin.jar"
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+export PATH="/Users/songpeng.zu/miniconda2/bin/:$PATH"
+
+export PYTHONPATH="/Users/songpeng.zu/Library/Python/2.7/lib/python/site-packages/:/Library/Python/2.7/site-packages/"
+export FIREWORK_HOME="/Users/songpeng.zu/hulu/firework-0.2.0/"
+#export SCALA_HOME="/usr/local/bin/scala"
+#export PATH="$SCALA_HOME:$PATH"
