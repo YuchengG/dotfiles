@@ -1,21 +1,21 @@
-# Private directory
-
-The content of this directory is ignored by Git. This is the default place
-where to store your private configuration layers.
-
-To create a new configuration layer:
-
-    SPC SPC configuration-layer/create-layer RET
-
-Then enter the name of your configuration in the prompt.
-
-A directory named after the created configuration layer will be created here
-along with template files within it (packages.el and extensions.el, more info
-on the meaning of those files can be found in the [documentation][conf_layers]).
-
-Each created file has further guidance written in them.
-
-Once the configuration is done, restart Emacs to load, install and configure
-your layer.
-
-[conf_layers]: https://github.com/syl20bnr/spacemacs/blob/master/doc/DOCUMENTATION.org#extensions-and-packages
+### Songpeng's dotfiles
+1. **.bash_profile** and **.bashrc**  
+   For the Mac terminal environment. Also .bashrc can be used for
+   Linux environment.
+2. **.gnus**  
+   It is used for Emacs's gnus (sending and receiving emails) setup.
+   Now I just use the webpage.
+3. **.vimrc**  
+   Vim enviroment.
+4. **init-local.el** and **custom.el**  
+   Emacs setup. Note it is from **Purcell's** Emacs setup configures.
+   And custom.el is automatically created by Emacs.
+   Now I change to spacemacs...
+5. **org_template_szu.org**  
+   Common systax for org-mode in Emacs.
+6. **latex_beamer_template.tex**  
+   Latex beamer template.
+7. **ppt_template_szu.pptx**__
+   PPT template.
+8. **dotspacemacs**
+   Used for spacemacs.

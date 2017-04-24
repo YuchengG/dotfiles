@@ -1,0 +1,15 @@
+#+TITLE: Emacs Tricks
+
+* FAQ
+** Quickly follow one file history.                                   :magit:
+  - Enter *magit-status*, by SPC g s or other means.
+  - Type l
+  - Type =f
+  - Type the file name
+  - Type l
+** Show limited information for in directory                          :dired:
+  - The command '(', which presents 'dired-hide-details-mode'
+    By default, it also hides the targets of symbolic links, and all lines other
+    than the header line and file/directory listings. To change this, customize
+    the options ‘dired-hide-details-hide-symlink-targets’ and
+    ‘dired-hide-details-hide-information-lines’, respectively.
