@@ -2,12 +2,19 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("(emacs) Dired"
- (front-context-string . "\nDired makes an ")
- (rear-context-string . "***************\n")
- (position . 1133827)
+(("(eshell) Expansion"
+ (front-context-string . "File: eshell.inf")
+ (rear-context-string)
+ (position . 19153)
+ (filename . "/Applications/Emacs.app/Contents/Resources/info/eshell")
+ (info-node . "Expansion")
+ (handler . Info-bookmark-jump))
+("(emacs) Shell"
+ (front-context-string . "\n40 Running Shel")
+ (rear-context-string . "dgets,  Up: Top\n")
+ (position . 1387075)
  (filename . "/Applications/Emacs.app/Contents/Resources/info/emacs")
- (info-node . "Dired")
+ (info-node . "Shell")
  (handler . Info-bookmark-jump))
 ("cdlatex.el"
  (filename . "~/.emacs.d/elpa/cdlatex-20140707.426/cdlatex.el")

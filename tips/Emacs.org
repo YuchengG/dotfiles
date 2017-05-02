@@ -13,3 +13,6 @@
     than the header line and file/directory listings. To change this, customize
     the options ‘dired-hide-details-hide-symlink-targets’ and
     ‘dired-hide-details-hide-information-lines’, respectively.
+** Use systematic shell command in E-shell                           :eshell:
+   - call *foo (or \*foo) instead of foo.
+   - which {command} :: shows where the command is from.
