@@ -1,12 +1,12 @@
 * Blogs                                                              :elfeed:
 ** emacs                                                             :emacs:
 *** http://planet.emacsen.org/atom.xml                               :planet:
-*** http://www.reddit.com/r/emacs/.rss                               :reddit:
+# *** http://www.reddit.com/r/emacs/.rss                               :reddit:
 ** programming                                                        :code:
-*** https://isocpp.org/blog/rss                                         :cpp:
+# *** https://isocpp.org/blog/rss                                         :cpp:
 ** news                                                               :news:
 *** https://www.technologyreview.com/stories.rss                        :mit:
 *** http://feeds.washingtonpost.com/rss/world                    :washington:
-*** https://news.ycombinator.com/rss                               :hacknews:
+# *** https://news.ycombinator.com/rss                               :hacknews:
 ** research                                                       :research:
 *** http://feeds.feedburner.com/blogspot/gJZg                        :google:
