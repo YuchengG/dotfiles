@@ -31,11 +31,10 @@ values."
      better-defaults
      emacs-lisp
      git
+     gnus
      (markdown :variables
                markdown-command "/usr/local/bin/pandoc")
      org
-     ;(org :variables
-     ;     org-todo-keywords '((sequence "TODO" "DONE" "CANCEL" "WAIT")))
      (shell :variables
             shell-default-shell 'eshell
             shell-default-term-shell "/bin/bash"
@@ -65,10 +64,10 @@ values."
      c-c++
      ess
      imenu-list
-     ;; (elfeed :variables
-     ;;         rmh-elfeed-org-files (list "~/home/songpeng/git-recipes/dotfiles/rssfeeds.org")
-     ;;         elfeed-enable-web-interface t
-     ;;         url-queue-timeout 30)
+     (elfeed :variables
+             rmh-elfeed-org-files (list "~/home/songpeng/git-recipes/dotfiles/rssfeeds.org")
+             elfeed-enable-web-interface t
+             url-queue-timeout 30)
      ;; (mu4e :variables
      ;;       mu4e-installation-path "~/.emacs.d/mu-0.9.18/mu4e"
      ;;       mu4e-enable-mode-line t
@@ -501,7 +500,6 @@ layers configuration. You are free to put any user code."
  '(cua-normal-cursor-color "#839496")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
- '(custom-enabled-themes (quote (spacemacs-dark)))
  '(custom-safe-themes
    (quote
     ("6df30cfb75df80e5808ac1557d5cc728746c8dbc9bc726de35b15180fa6e0ad9" "0ae09e79d0a3a7c9f31522fa325c7b9f248e5f5481e9b4a0c3bb9f3a91f221f1" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
@@ -534,7 +532,7 @@ layers configuration. You are free to put any user code."
    (quote
     ("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36")))
  '(hl-sexp-background-color "#efebe9")
- '(imenu-list-minor-mode t)
+ '(imenu-list-minor-mode nil)
  '(magit-diff-use-overlays nil)
  '(nrepl-message-colors
    (quote
@@ -616,10 +614,10 @@ This function is called at the very end of Spacemacs initialization."
  '(cua-normal-cursor-color "#839496")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
- '(custom-enabled-themes (quote (spacemacs-dark)))
+ '(custom-enabled-themes (quote (monokai)))
  '(custom-safe-themes
    (quote
-    ("6df30cfb75df80e5808ac1557d5cc728746c8dbc9bc726de35b15180fa6e0ad9" "0ae09e79d0a3a7c9f31522fa325c7b9f248e5f5481e9b4a0c3bb9f3a91f221f1" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
+    ("f78de13274781fbb6b01afd43327a4535438ebaeec91d93ebdbba1e3fba34d3c" "6df30cfb75df80e5808ac1557d5cc728746c8dbc9bc726de35b15180fa6e0ad9" "0ae09e79d0a3a7c9f31522fa325c7b9f248e5f5481e9b4a0c3bb9f3a91f221f1" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
  '(doc-view-continuous t)
  '(eclimd-default-workspace "~/hulu/reco/")
  '(elfeed-feeds nil)
@@ -649,7 +647,7 @@ This function is called at the very end of Spacemacs initialization."
    (quote
     ("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36")))
  '(hl-sexp-background-color "#efebe9")
- '(imenu-list-minor-mode t)
+ '(imenu-list-minor-mode nil)
  '(mac-option-modifier (quote (:ordinary meta :function meta :mouse meta)))
  '(magit-diff-use-overlays nil)
  '(nrepl-message-colors
