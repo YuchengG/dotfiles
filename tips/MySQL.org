@@ -6,3 +6,6 @@ FROM research.user2vec
 WHERE id = 1
 #+END_SRC
 Use ~SUM()~ function around ~LENGTH()~ to get the total size of one column.
+
+** Upload data even on duplicate keys.
+   Use ~REPLACE~ instead of ~INSERT~
