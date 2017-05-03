@@ -1,5 +1,3 @@
-#+TITLE: Emacs Tricks
-
 * FAQ
 ** Quickly follow one file history.                                   :magit:
   - Enter *magit-status*, by SPC g s or other means.

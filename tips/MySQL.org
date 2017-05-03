@@ -1,0 +1,8 @@
+* FAQ
+** Get data size of one element
+#+BEGIN_SRC sql
+SELECT LENGTH(parameters)/1024/1024 "parameters size in MB"
+FROM research.user2vec
+WHERE id = 1
+#+END_SRC
+Use ~SUM()~ function around ~LENGTH()~ to get the total size of one column.
