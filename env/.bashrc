@@ -125,11 +125,10 @@ export PATH="/Library/TeX/texbin/:/user/local/bin:/usr/local/lib:$PATH"
 
 export DYLD_LIBRARY_PATH="/usr/local/Cellar/boost/1.60.0_1/lib/:$DYLD_LIBRARY_PATH"
 export CLASSPATH=".;/Library/Java/Extensions/mysql-connector-java-5.1.40-bin.jar"
-export JAVA_HOME=$(/usr/libexec/java_home)
+#export JAVA_HOME=$(/usr/libexec/java_home)
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home/"
 
 export PATH="/Users/songpeng.zu/miniconda2/bin/:$PATH"
 
 export PYTHONPATH="/Users/songpeng.zu/Library/Python/2.7/lib/python/site-packages/:/Library/Python/2.7/site-packages/"
 export FIREWORK_HOME="/Users/songpeng.zu/hulu/firework-0.2.0/"
-#export SCALA_HOME="/usr/local/bin/scala"
-#export PATH="$SCALA_HOME:$PATH"
