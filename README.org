@@ -1,14 +1,14 @@
 #+TITLE: dotfiles
 #+AUTHOR: Songpeng Zu
 
-* CONTENT
-  - [[Environmental variables]]
-  - [[Emacs configuration]]
-  - [[Firefox setup]]
-  - [[IDE configuration]]
-  - [[Presentation template]]
-  - [[Programming tools]]
-  - [[FAQs]]
+* CONTENT                                                 :TOC_4_gh:noexport:
+ - [[#environmental-variables][Environmental variables]]
+ - [[#emacs-configuration][Emacs configuration]]
+ - [[#firefox-setup][Firefox setup]]
+ - [[#ide-configuration][IDE configuration]]
+ - [[#presentation-template][Presentation template]]
+ - [[#programming-tools][Programming tools]]
+ - [[#faqs][FAQs]]
 
 * Environmental variables
   - .bashrc, .bash_profile

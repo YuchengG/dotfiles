@@ -2,5 +2,5 @@
 	path = elpy
 	url = https://github.com/TheBB/elpy-layer.git
 [submodule "dotspacemacsPrivate/elpy"]
-	path = dotspacemacsPrivate/elpy
+	path = emacs/dotspacemacsPrivate/elpy
 	url = https://github.com/TheBB/elpy-layer.git
