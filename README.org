@@ -1,0 +1,39 @@
+#+TITLE: dotfiles
+#+AUTHOR: Songpeng Zu
+
+* CONTENT
+  - [[Environmental variables]]
+  - [[Emacs configuration]]
+  - [[Firefox setup]]
+  - [[IDE configuration]]
+  - [[Presentation template]]
+  - [[Programming tools]]
+  - [[FAQs]]
+
+* Environmental variables
+  - .bashrc, .bash_profile
+  - .zshrc
+  - .vimrc
+  - .pydistutils.cfg
+* Emacs configuration
+  - .spacemacs
+  - .gnus
+  - private layers
+  - bookmarks
+  - info
+  - rssfeed.org
+  - custem.el
+  - init-local.el
+* Firefox setup
+  - keysnail.xpi
+* IDE configuration
+  - keymap-jetBrains.jar
+* Presentation template
+  - ppt_template
+  - beamer_template
+  - org
+* Programming tools
+  - cmake
+* FAQs
+  - emacs
+  - mysql
