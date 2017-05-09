@@ -60,7 +60,7 @@ values."
      ess
      imenu-list
      (elfeed :variables
-             rmh-elfeed-org-files (list "~/home/songpeng/git-recipes/dotfiles/rssfeeds.org")
+             rmh-elfeed-org-files (list "~/dotfiles/emacs/rssfeeds.org")
              elfeed-enable-web-interface t
              url-queue-timeout 30)
      ;; (mu4e :variables
@@ -293,6 +293,9 @@ It is called immediately after `dotspacemacs/init'.  You are free to put almost 
 user code here.  The exception is org related code, which should be placed in
 `dotspacemacs/user-config'."
   ;;(fset 'xterm-color-unfontify-region 'font-lock-default-unfontify-region)
+  ;; set custom-file.
+  (setq custom-file "~/.emacs.d/.emacs-custom.el")
+  (load custom-file)
   (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
   (push '("ensime" . "melpa-stable") package-pinned-packages)
   (my-setup-indent 4)
@@ -350,8 +353,7 @@ layers configuration. You are free to put any user code."
     (interactive)
     (shell-command "gnugo --help"))
   (global-set-key (kbd "C-SPC") 'set-mark-command)
-  (setq org-agenda-files (list "~/home/songpeng/git-recipes/BeyondPie/GTD/gtd-2017.org"
-                               "~/todo.org"))
+  (setq org-agenda-files (list "~/BeyondPie/GTD/gtd-2017.org"))
   (defun notify-osx (title message)
     (call-process "terminal-notifier"
                   nil 0 nil
@@ -443,8 +445,8 @@ layers configuration. You are free to put any user code."
             (lambda ()
               (define-key python-mode-map "\C-c\C-n" 'szu/python-shell-send-line)))
   ;;(add-to-list 'Info-default-directory-list "~/home/songpeng/git-recipes/dotfiles/info")
-  (add-to-list 'Info-directory-list "~/home/songpeng/git-recipes/dotfiles/info")
-  (setq bookmark-default-file "~/home/songpeng/git-recipes/dotfiles/bookmarks")
+  (add-to-list 'Info-directory-list "~/dotfiles/emacs/info")
+  (setq bookmark-default-file "~/dotfiles/emacs/bookmarks")
   (setq bookmark-save-flag t) ;; save bookmark when emacs quits.
   (autoload 'dired-async-mode "dired-async.el" nil t)
   (dired-async-mode 1)
@@ -474,7 +476,4 @@ layers configuration. You are free to put any user code."
   (add-hook 'nxml-mode-hook 'hs-minor-mode)
   ;; optional key bindings, easier than hs defaults
   (define-key nxml-mode-map (kbd "C-c h") 'hs-toggle-hiding)
-  ;; set custom-file.
-  (setq custom-file "~/.emacs.d/.emacs-custom.el")
-  (load custom-file)
 )
