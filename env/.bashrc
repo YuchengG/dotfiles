@@ -132,3 +132,4 @@ export PATH="/Users/songpeng.zu/miniconda2/bin/:$PATH"
 
 export PYTHONPATH="/Users/songpeng.zu/Library/Python/2.7/lib/python/site-packages/:/Library/Python/2.7/site-packages/"
 export FIREWORK_HOME="/Users/songpeng.zu/hulu/firework-0.2.0/"
+export PS1="> "
