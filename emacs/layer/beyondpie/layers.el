@@ -2,4 +2,5 @@
                                      beyondpie-writing
                                      beyondpie-gnugo
                                      beyondpie-org
-                                     beyondpie-programming))
+                                     beyondpie-programming
+                                     beyondpie-doggypoo))
