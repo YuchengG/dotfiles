@@ -1,3 +1,4 @@
 *.html
 /.DS_Store
 /emacs/layer/beyondpie-writing/.DS_Store
+/emacs/.DS_Store
