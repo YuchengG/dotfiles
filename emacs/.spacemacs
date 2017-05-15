@@ -13,7 +13,7 @@ values."
    dotspacemacs-distribution 'spacemacs
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '()
+   dotspacemacs-configuration-layer-path '("~/dotfiles/emacs/layer/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
@@ -63,15 +63,11 @@ values."
              rmh-elfeed-org-files (list "~/dotfiles/emacs/rssfeeds.org")
              elfeed-enable-web-interface t
              url-queue-timeout 30)
-     ;; (mu4e :variables
-     ;;       mu4e-installation-path "~/.emacs.d/mu-0.9.18/mu4e"
-     ;;       mu4e-enable-mode-line t
-     ;;       mu4e-enable-notifications t
-     ;;       mu4e-account-alist nil)
      osx
      (pdf-tools :config
                 (setq TeX-view-program-selection '((output-pdf "pdf-tools")))
                 (setq TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view"))))
+     beyondpie
      )
 
    ;; List of additional packages that will be installed without being
@@ -294,7 +290,7 @@ user code here.  The exception is org related code, which should be placed in
 `dotspacemacs/user-config'."
   ;;(fset 'xterm-color-unfontify-region 'font-lock-default-unfontify-region)
   ;; set custom-file.
-  (setq custom-file "~/.emacs.d/.emacs-custom.el")
+  (setq custom-file "~/dotfiles/emacs/.emacs-custom.el")
   (load custom-file)
   (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
   (push '("ensime" . "melpa-stable") package-pinned-packages)
@@ -305,175 +301,4 @@ user code here.  The exception is org related code, which should be placed in
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
-  ;; to set path and PATH
-  (setq exec-path (append exec-path '("/usr/local/bin")))
-  (setq exec-path (append exec-path '("/usr/local/sbin")))
-  ;; (setenv "PATH" (shell-command-to-string "/bin/bash -c 'echo -n $PATH'"))
-  ;;(setq-default indent-tabs-mode nil)
-  ;;(setq-default default-tab-width 4)
-  ;; set for java and scala to use ensime.
-  (use-package ensime
-    :commands ensime ensime-mode
-    :ensure t
-    :pin melpa-stable)
-  (setq ensime-startup-notification t)
-  (setq ensime-startup-snapshot-notification t)
-  ;;(add-hook 'java-mode-hook 'ensime-mode)
-  (add-hook 'scala-mode-hook 'ensime-mode)
-  (use-package sbt-mode
-    :commands sbt-start sbt-command
-    :config
-    (substitute-key-definition
-     'minibuffer-complete-word
-     'self-insert-command
-     minibuffer-local-completion-map))
-  ;; set for eclim
-  ;;  (setq eclimd-autostart t)
-  ;; (setq eclim-eclipse-dirs "/Applications/Eclipse.app/Contents/MacOS/eclipse"
-  ;;       eclim-executable "/Applications/Eclipse.app/Contents/Eclipse/eclim"
-  ;;       eclimd-executable "/Applications/Eclipse.app/Contents/Eclipse/eclimd")
-  ;; auto-complete-mode for java eclim
-  ;; (require 'auto-complete-config)
-  ;; (ac-config-default)
-  ;; (require 'ac-emacs-eclim-source)
-  ;; (ac-emacs-eclim-config)
-  ;; configure company-mode for java eclim.
-  (require 'company)
-  ;; (require 'company-emacs-eclim)
-  ;; (company-emacs-eclim-setup)
-  ;; (global-company-mode t)
-  ;; (setq company-emacs-eclim-ignore-case t)
-  ;; start server
-  (add-hook 'doc-view-mode-hook 'auto-revert-mode)
-  (ispell-change-dictionary "american" t)
-  (setq gnugo-xpms 'gnugo-imgen-create-xpms)
-  ;;(setq mac-command-modifier 'control)
-  (defun szu/gnugo/help()
-    "return gnugo help by running shell command."
-    (interactive)
-    (shell-command "gnugo --help"))
-  (global-set-key (kbd "C-SPC") 'set-mark-command)
-  (setq org-agenda-files (list "~/BeyondPie/GTD/gtd-2017.org"))
-  (defun notify-osx (title message)
-    (call-process "terminal-notifier"
-                  nil 0 nil
-                  "-group" "Emacs"
-                  "-title" title
-                  "-sender" "org.gnu.Emacs"
-                  "-message" message
-                  "-activate" "org.gnu.Emacs"))
-  (add-hook 'org-pomodoro-finished-hook
-            (lambda ()
-              (notify-osx "Pomodoro completed!" "Time for a break.")))
-  (add-hook 'org-pomodoro-break-finished-hook
-            (lambda ()
-              (notify-osx "Pomodoro Short Break Finished." "Ready for Another?")))
-  (add-hook 'org-pomodoro-long-break-finished-hook
-            (lambda ()
-              (notify-osx "Pomodoro Long Break Finished." "Ready for Another?")))
-  (add-hook 'org-pomodoro-killed-hook
-            (lambda ()
-              (notify-osx "Pomodoro Killed." "One does not simply kill a pomodoro!")))
-  (setq org-todo-keywords
-        (quote ((sequence "TODO" "NEXT" "|" "DONE")
-                (sequence "WAITING" "HOLD" "|" "CANCELED" "MOVED" "PHONE" "MEETING"))))
-  (add-hook 'doc-view-mode-hook 'auto-revert-mode)
-  ;; (when (eq system-type 'darwin)
-  ;;   (add-to-list 'load-path "/usr/local/Cellar/mu/HEAD/share/emacs/site-lisp/mu4e"))
-
-  (add-hook 'LaTeX-mode-hook #'latex-extra-mode)
-
-  ;; turn on cdlatex minor mode in latex and org.
-  (add-hook 'LaTeX-mode-hook 'turn-on-cdlatex)
-  (add-hook 'latex-mode-hook 'turn-on-cdlatex)
-  (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
-  (setq TeX-view-program-selection '((output-pdf "pdf-tools")))
-  (setq TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view")))
-  (defun th/pdf-view-revert-buffer-maybe (file)
-    (let ((buf (find-buffer-visiting file)))
-      (when buf
-        (with-current-buffer buf
-          (when (derived-mode-p 'pdf-view-mode)
-            (pdf-view-revert-buffer nil t))))))
-  (add-hook 'TeX-after-TeX-LaTeX-command-finished-hook
-            #'th/pdf-view-revert-buffer-maybe)
-
-  ;; set tramp
-  (add-to-list 'tramp-remote-path 'tramp-own-remote-path)
-  (setq tramp-ssh-controlmaster-options
-        "-o ControlMaster=auto -o ControlPath='tramp.%%C' -o ControlPersist=no")
-  (setq tramp-chunksize 500)
-  (eval-after-load 'tramp '(setenv "SHELL" "/bin/bash"))
-  (setq tramp-completion-reread-directory-timeout nil)
-  (setq vc-ignore-dir-regexp
-        (format "\\(%s\\)\\|\\(%s\\)"
-                vc-ignore-dir-regexp
-                tramp-file-name-regexp))
-  (setq tramp-auto-save-directory "/tmp")
-  (setq tramp-verbose 6)
-  ;; set org chinese font output
-  (setq org-latex-pdf-process '("xelatex -interaction nonstopmode %f"
-                                "xelatex -interaction nonstopmode %f"))
-  (defun szu/clear-R-shell ()
-    (interactive)
-    (let ((old-max comint-buffer-maximum-size))
-      (setq comint-buffer-maximum-size 0)
-      (comint-truncate-buffer)
-      (setq comint-buffer-maximum-size old-max)))
-  (defun szu/python-shell-send-line ()
-    ;; send line to python shell, but not work
-    ;; on multiple lines, such as comma as end
-    ;; of current line.
-    (interactive)
-    (save-excursion
-      (setq script_buffer (format (buffer-name)))
-      (end-of-line)
-      (kill-region (point) (progn (back-to-indentation) (point)))
-      (if (get-buffer "*Python*")
-          (message "")
-        (run-python "ipython" nil nil))
-      (setq py_buffer "*Python*")
-      (switch-to-buffer-other-window py_buffer)
-      (goto-char (buffer-end 1))
-      (yank)
-      (comint-send-input)
-      (switch-to-buffer-other-window script_buffer)
-      (yank))
-    (end-of-line)
-    (next-line))
-  (add-hook 'python-mode-hook
-            (lambda ()
-              (define-key python-mode-map "\C-c\C-n" 'szu/python-shell-send-line)))
-  ;;(add-to-list 'Info-default-directory-list "~/home/songpeng/git-recipes/dotfiles/info")
-  (add-to-list 'Info-directory-list "~/dotfiles/emacs/info")
-  (setq bookmark-default-file "~/dotfiles/emacs/bookmarks")
-  (setq bookmark-save-flag t) ;; save bookmark when emacs quits.
-  (autoload 'dired-async-mode "dired-async.el" nil t)
-  (dired-async-mode 1)
-  (async-bytecomp-package-mode 1)
-  ;; set zsh
-  ;; (setq multi-term-program "/bin/zsh")
-  ;; python
-  (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
-  (setq py-autopep9-options '("--max-line-length=79"))
-  (when (executable-find "ipython")
-    (setq python-shell-interpreter "ipython"))
-  (setq python-shell-interpreter-args "-i --simple-prompt --pylab")
-  ;;(setq python-shell-completion-native-enable nil)
-  (setenv "IPY_TEST_SIMPLE_PROMPT" "1")
-  ;; nxml fold
-  (require 'hideshow)
-  (require 'sgml-mode)
-  (require 'nxml-mode)
-  (add-to-list 'hs-special-modes-alist
-               '(nxml-mode
-                 "<!--\\|<[^/>]*[^/]>"
-                 "-->\\|</[^/>]*[^/]>"
-
-                 "<!--"
-                 sgml-skip-tag-forward
-                 nil))
-  (add-hook 'nxml-mode-hook 'hs-minor-mode)
-  ;; optional key bindings, easier than hs defaults
-  (define-key nxml-mode-map (kbd "C-c h") 'hs-toggle-hiding)
 )
