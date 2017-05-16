@@ -1,0 +1,6 @@
+* FAQ
+** not use passphrase for ssh                                           :ssh:
+   1. ~ssh-add -K ~/.ssh/id_rsa~
+OR 2. edit *~/.ssh/config*
+      "Host *
+           UseKeychain yse"
