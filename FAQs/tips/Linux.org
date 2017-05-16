@@ -1,0 +1,4 @@
+* FAQ
+** free memory
+   1. check memory :: ~free -m~
+   2. free memory :: ~sudo sh -c "$(which echo) 3 > /proc/sys/vm/drop_caches"~
