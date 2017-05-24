@@ -48,8 +48,7 @@ values."
             scala-auto-insert-asterisk-in-comments t
             scala-use-unicode-arrows t
             scala-auto-start-ensime t)
-     (java :variables
-           java-backend 'ensime)
+     java
      ;;elpy
      ;; (python :variables
      ;;         python-enable-yapf-format-on-save t
@@ -88,6 +87,8 @@ values."
                                       ;;ac-emacs-eclim
                                       gradle-mode
                                       py-autopep8
+                                      doom-themes
+                                      company
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(smartparens
@@ -155,7 +156,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(monokai
+   dotspacemacs-themes '(doom-one
+                         monokai
                          spacemacs-light
                          spacemacs-dark
                          solarized-light

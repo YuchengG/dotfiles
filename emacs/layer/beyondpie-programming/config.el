@@ -2,7 +2,7 @@
 (setq ensime-startup-notification t)
 (setq ensime-startup-snapshot-notification t)
 
-(add-hook 'java-mode-hook 'ensime-mode)
+;;(add-hook 'java-mode-hook 'ensime-mode)
 (add-hook 'scala-mode-hook 'ensime-mode)
 
 (add-hook 'python-mode-hook

@@ -37,3 +37,16 @@
                sgml-skip-tag-forward
                nil))
 (add-hook 'nxml-mode-hook 'hs-minor-mode)
+
+;; (setq eclimd-autostart t)
+;; (setq eclim-eclipse-dirs "/Applications/Eclipse.app/Contents/MacOS/eclipse"
+;;       eclim-executable "/Applications/Eclipse.app/Contents/Eclipse/eclim"
+;;       eclimd-executable "/Applications/Eclipse.app/Contents/Eclipse/eclimd")
+;; ;
+                                        ;(require 'company)
+;;(require 'company-emacs-eclim)
+;;(company-emacs-eclim-setup)
+;;(global-company-mode t)
+;;(setq company-emacs-eclim-ignore-case t)
+
+(setq mac-command-modifier 'control)
