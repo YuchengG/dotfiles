@@ -38,12 +38,11 @@
                nil))
 (add-hook 'nxml-mode-hook 'hs-minor-mode)
 
-;; (setq eclimd-autostart t)
-;; (setq eclim-eclipse-dirs "/Applications/Eclipse.app/Contents/MacOS/eclipse"
-;;       eclim-executable "/Applications/Eclipse.app/Contents/Eclipse/eclim"
-;;       eclimd-executable "/Applications/Eclipse.app/Contents/Eclipse/eclimd")
-;; ;
-                                        ;(require 'company)
+(setq eclimd-autostart t)
+(setq eclim-eclipse-dirs "/Applications/Eclipse.app/Contents/MacOS/eclipse"
+      eclim-executable "/Applications/Eclipse.app/Contents/Eclipse/eclim"
+      eclimd-executable "/Applications/Eclipse.app/Contents/Eclipse/eclimd")
+;;(require 'company)
 ;;(require 'company-emacs-eclim)
 ;;(company-emacs-eclim-setup)
 ;;(global-company-mode t)
