@@ -58,7 +58,6 @@
   "Wake up doggypoo minor mode."
   (doggypoo-mode t))
 
-;;;###autoload
 (defun doggypoo-mode (&optional arg)
   "Minor mode for a smart, lovely, and loyalty dog."
   (interactive "P")
@@ -76,4 +75,3 @@
 
 
 (provide 'doggypoo)
-;;; doggypoo.el ends here
