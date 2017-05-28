@@ -2,7 +2,7 @@
 (setq-default indent-tabs-mode nil
               default-tab-width 4)
 
-(setq exec-path (append exec-path '("/usr/local/bin", "/usr/local/sbin")))
+;;(setq exec-path (append exec-path '("/usr/local/bin", "/usr/local/sbin")))
 
 ;; set tramp
 ;; ERROR: as symbols is empty.
@@ -37,11 +37,3 @@
                sgml-skip-tag-forward
                nil))
 (add-hook 'nxml-mode-hook 'hs-minor-mode)
-
-(setq eclimd-autostart t)
-(setq eclim-eclipse-dirs "/Applications/Eclipse.app/Contents/MacOS/eclipse"
-      eclim-executable "/Applications/Eclipse.app/Contents/Eclipse/eclim"
-      eclimd-executable "/Applications/Eclipse.app/Contents/Eclipse/eclimd")
-(setq eclim-auto-save nil)
-
-(setq mac-command-modifier 'control)

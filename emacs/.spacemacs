@@ -48,7 +48,8 @@ values."
             scala-auto-insert-asterisk-in-comments t
             scala-use-unicode-arrows t
             scala-auto-start-ensime t)
-     java
+     (java :variables
+           java-backend 'ensime)
      ;;elpy
      ;; (python :variables
      ;;         python-enable-yapf-format-on-save t
@@ -62,7 +63,8 @@ values."
              rmh-elfeed-org-files (list "~/dotfiles/emacs/rssfeeds.org")
              elfeed-enable-web-interface t
              url-queue-timeout 30)
-     osx
+     (osx :variables
+          osx-command-as 'super)
      (pdf-tools :config
                 (setq TeX-view-program-selection '((output-pdf "pdf-tools")))
                 (setq TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view"))))
@@ -82,13 +84,9 @@ values."
                                       counsel-bbdb
                                       cdlatex
                                       cl-lib
-                                      ensime
                                       sbt-mode
-                                      ;;ac-emacs-eclim
-                                      gradle-mode
                                       py-autopep8
                                       doom-themes
-                                      company
                                       )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(smartparens

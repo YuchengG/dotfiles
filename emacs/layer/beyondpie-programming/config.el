@@ -1,8 +1,8 @@
 
-(setq ensime-startup-notification t)
-(setq ensime-startup-snapshot-notification t)
+(setq ensime-startup-notification nil)
+(setq ensime-startup-snapshot-notification nil)
 
-;;(add-hook 'java-mode-hook 'ensime-mode)
+(add-hook 'java-mode-hook 'ensime-mode)
 (add-hook 'scala-mode-hook 'ensime-mode)
 
 (add-hook 'python-mode-hook
@@ -16,3 +16,13 @@
 (setq python-shell-interpreter-args "-i --simple-prompt --pylab")
 ;;(setq python-shell-completion-native-enable nil)
 (setenv "IPY_TEST_SIMPLE_PROMPT" "1")
+
+
+;; eclim
+;; (setq eclimd-autostart t)
+;; (setq eclim-eclipse-dirs "/Applications/Eclipse.app/Contents/MacOS/eclipse"
+;;       eclim-executable "/Applications/Eclipse.app/Contents/Eclipse/eclim"
+;;       eclimd-executable "/Applications/Eclipse.app/Contents/Eclipse/eclimd"
+;;       eclimd-default-workspace "~/hulu/reco")
+;; (setq eclim-auto-save nil)
+;; (setq eclimd-wait-for-process nil)
