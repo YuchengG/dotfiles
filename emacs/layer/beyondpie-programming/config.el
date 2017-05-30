@@ -1,10 +1,6 @@
 
 (setq ensime-startup-notification nil)
 (setq ensime-startup-snapshot-notification nil)
-
-(add-hook 'java-mode-hook 'ensime-mode)
-(add-hook 'scala-mode-hook 'ensime-mode)
-
 (add-hook 'python-mode-hook
           (lambda ()
             (define-key python-mode-map "\C-c\C-n" 'szu/python-shell-send-line)))
