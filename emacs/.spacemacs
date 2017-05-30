@@ -49,7 +49,7 @@ values."
             scala-use-unicode-arrows t
             scala-auto-start-ensime t)
      (java :variables
-           java-backend 'ensime)
+           java-backend 'meghanada)
      ;;elpy
      ;; (python :variables
      ;;         python-enable-yapf-format-on-save t
@@ -64,7 +64,9 @@ values."
              elfeed-enable-web-interface t
              url-queue-timeout 30)
      (osx :variables
-          osx-command-as 'super)
+          osx-control-as 'control
+          osx-option-as 'meta
+          osx-command-as 'hyper)
      (pdf-tools :config
                 (setq TeX-view-program-selection '((output-pdf "pdf-tools")))
                 (setq TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view"))))
@@ -77,7 +79,6 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(mwe-log-commands
                                       gnugo
-                                      youdao-dictionary
                                       latex-extra
                                       bbdb
                                       w3m
