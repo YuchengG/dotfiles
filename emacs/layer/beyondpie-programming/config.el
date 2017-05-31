@@ -13,8 +13,8 @@
 ;;(setq python-shell-completion-native-enable nil)
 (setenv "IPY_TEST_SIMPLE_PROMPT" "1")
 
-
-;; eclim
+(add-hook 'java-mode 'beyondpie/set-java-fci)
+;; set eclim
 ;; (setq eclimd-autostart t)
 ;; (setq eclim-eclipse-dirs "/Applications/Eclipse.app/Contents/MacOS/eclipse"
 ;;       eclim-executable "/Applications/Eclipse.app/Contents/Eclipse/eclim"

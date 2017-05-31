@@ -25,3 +25,10 @@
     (yank))
   (end-of-line)
   (next-line))
+
+(defun beyondpie/set-java-fci ()
+  (interactive)
+  (setq fci-rule-column 120)
+  (fci-mode t)
+  (auto-fill-mode t)
+  )
