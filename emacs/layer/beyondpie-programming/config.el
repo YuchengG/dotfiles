@@ -1,5 +1,5 @@
 ;; general
-(add-hook 'prog-mode-hook 'whitespace-mode)
+;;(add-hook 'prog-mode-hook 'whitespace-mode)
 (add-hook 'prog-mode-hook 'linum-mode)
 (add-hook 'prog-mode-hook 'auto-fill-mode)
 (add-hook 'prog-mode-hook 'fci-mode)

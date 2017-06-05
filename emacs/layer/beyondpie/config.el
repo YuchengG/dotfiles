@@ -37,3 +37,4 @@
                sgml-skip-tag-forward
                nil))
 (add-hook 'nxml-mode-hook 'hs-minor-mode)
+(setq gc-cons-threshold 1000000000)
