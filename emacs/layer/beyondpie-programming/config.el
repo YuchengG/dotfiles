@@ -25,3 +25,10 @@
 ;;       eclimd-default-workspace "~/hulu/reco")
 ;; (setq eclim-auto-save nil)
 ;; (setq eclimd-wait-for-process nil)
+
+
+;; set ensime for scala
+(setq flycheck-scalastyle-jar
+      "/usr/local/Cellar/scalastyle/0.8.0/libexec/scalastyle_2.11-0.8.0-batch.jar")
+(setq flycheck-scalastylerc
+      "/usr/local/etc/scalastyle_config.xml")

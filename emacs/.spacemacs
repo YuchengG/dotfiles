@@ -46,6 +46,7 @@ values."
             latex-enable-folding t)
      (scala :variables
             scala-indent:use-javadoc-style t
+            scala-enable-eldoc nil
             scala-auto-insert-asterisk-in-comments t
             scala-use-unicode-arrows t
             scala-auto-start-ensime t)
@@ -73,11 +74,6 @@ values."
                 (setq TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view"))))
      beyondpie
      )
-
-   ;; List of additional packages that will be installed without being
-   ;; wrapped in a layer. If you need some configuration for these
-   ;; packages then consider to create a layer, you can also put the
-   ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(mwe-log-commands
                                       gnugo
                                       latex-extra
@@ -90,13 +86,9 @@ values."
                                       py-autopep8
                                       doom-themes
                                       )
-   ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '(smartparens
                                     semantic
                                     spaceline)
-   ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
-   ;; are declared in a layer which is not a member of
-   ;; the list `dotspacemacs-configurat ion-layers'. (default t)
    dotspacemacs-delete-orphan-packages t))
 
 (defun my-setup-indent (n)
@@ -147,9 +139,6 @@ values."
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
    dotspacemacs-startup-banner 'official
-   ;; List of items to show in the startup buffer. If nil it is disabled.
-   ;; Possible values are: `recents' `bookmarks' `projects'.
-   ;; (default '(recents projects))
    dotspacemacs-startup-lists '(projects recents bookmarks)
    ;; Number of recent files to show in the startup buffer. Ignored if
    ;; `dotspacemacs-startup-lists' doesn't include `recents'. (default 5)
@@ -233,15 +222,10 @@ values."
    ;; may increase the boot time on some systems and emacs builds, set it to
    ;; nil to boost the loading time. (default t)
    dotspacemacs-loading-progress-bar nil
-   ;; If non nil the frame is fullscreen when Emacs starts up. (default nil)
-   ;; (Emacs 24.4+ only)
    dotspacemacs-fullscreen-at-startup nil
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
    dotspacemacs-fullscreen-use-non-native nil
-   ;; If non nil the frame is maximized when Emacs starts up.
-   ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
-   ;; (default nil) (Emacs 24.4+ only)
    dotspacemacs-maximized-at-startup t
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
@@ -257,9 +241,6 @@ values."
    ;; scrolling overrides the default behavior of Emacs which recenters the
    ;; point when it reaches the top or bottom of the screen. (default t)
    dotspacemacs-smooth-scrolling t
-   ;; If non nil line numbers are turned on in all `prog-mode' and `text-mode'
-   ;; derivatives. If set to `relative', also turns on relative line numbers.
-   ;; (default nil)
    dotspacemacs-line-numbers nil
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
@@ -291,7 +272,6 @@ values."
 It is called immediately after `dotspacemacs/init'.  You are free to put almost any
 user code here.  The exception is org related code, which should be placed in
 `dotspacemacs/user-config'."
-  ;;(fset 'xterm-color-unfontify-region 'font-lock-default-unfontify-region)
   ;; set custom-file.
   (setq custom-file "~/dotfiles/emacs/.emacs-custom.el")
   (load custom-file)
@@ -300,8 +280,4 @@ user code here.  The exception is org related code, which should be placed in
   (my-setup-indent 4)
 )
 
-(defun dotspacemacs/user-config ()
-  "Configuration function for user code.
-This function is called at the very end of Spacemacs initialization after
-layers configuration. You are free to put any user code."
-)
+(defun dotspacemacs/user-config ())
