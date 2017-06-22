@@ -1,3 +1,4 @@
+(add-to-list 'load-path "~/.emacs.d/elpa")
 
 (setq-default indent-tabs-mode nil
               default-tab-width 4)
@@ -37,3 +38,5 @@
                sgml-skip-tag-forward
                nil))
 (add-hook 'nxml-mode-hook 'hs-minor-mode)
+
+(autoload 'gmail2bbdb-import-file "gmail2bbdb" nil t nil)
