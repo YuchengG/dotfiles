@@ -20,8 +20,8 @@
 (setq tramp-verbose 6)
 
 ;; ERROR: as symbles is empty
-;;(add-to-list 'Info-directory-list "~/dotfiles/emacs/info")
-(setq bookmark-default-file "~/dotfiles/emacs/bookmarks")
+(add-to-list 'Info-default-directory-list "/Users/songpeng.zu/dotfiles/emacs/info")
+(setq bookmark-default-file "/Users/songpeng.zu/dotfiles/emacs/bookmarks")
 (setq bookmark-save-flag t) ;; save bookmark when emacs quits.
 
 ;; nxml fold

@@ -15,7 +15,7 @@
  '(cua-normal-cursor-color "#839496")
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
- '(custom-enabled-themes (quote (doom-molokai)))
+ '(custom-enabled-themes (quote (zenburn)))
  '(custom-file "/Users/songpeng.zu/dotfiles/emacs/.emacs-custom.el")
  '(custom-safe-themes
    (quote
@@ -49,13 +49,13 @@
    (quote
     ("#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36" "#002b36")))
  '(hl-sexp-background-color "#efebe9")
- '(imenu-list-minor-mode t)
+ '(imenu-list-minor-mode nil)
  '(jdee-db-active-breakpoint-face-colors (cons "#1B2229" "#51afef"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#1B2229" "#98be65"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#1B2229" "#3B3F46"))
  '(magit-diff-use-overlays nil)
- '(meghanada-use-company t)
- '(meghanada-use-flycheck t)
+ '(meghanada-use-company t t)
+ '(meghanada-use-flycheck t t)
  '(nrepl-message-colors
    (quote
     ("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4")))
