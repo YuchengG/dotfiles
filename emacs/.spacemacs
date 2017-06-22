@@ -13,11 +13,12 @@ values."
    dotspacemacs-distribution 'spacemacs
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
-   dotspacemacs-configuration-layer-path '("~/dotfiles/emacs/layer/")
+   dotspacemacs-configuration-layer-path '("/Users/songpeng.zu/dotfiles/emacs/layer/")
    ;; List of configuration layers to load. If it is the symbol `all' instead
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
-   '(octave
+   '(scheme
+     octave
      python
      csv
      html
@@ -85,10 +86,11 @@ values."
                                       sbt-mode
                                       py-autopep8
                                       doom-themes
+                                      gmail2bbdb
                                       )
-   dotspacemacs-excluded-packages '(smartparens
-                                    semantic
-                                    spaceline)
+   ;; dotspacemacs-excluded-packages '(smartparens
+   ;;                                  semantic
+   ;;                                  spaceline)
    dotspacemacs-delete-orphan-packages t))
 
 (defun my-setup-indent (n)
@@ -146,13 +148,13 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(doom-one
+   dotspacemacs-themes '(zenburn
+                         doom-one
                          monokai
                          spacemacs-light
                          spacemacs-dark
                          solarized-light
-                         leuven
-                         zenburn)
+                         leuven)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
