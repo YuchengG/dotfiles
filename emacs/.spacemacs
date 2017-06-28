@@ -62,10 +62,10 @@ values."
      c-c++
      ess
      imenu-list
-     (elfeed :variables
-             rmh-elfeed-org-files (list "~/dotfiles/emacs/rssfeeds.org")
-             elfeed-enable-web-interface t
-             url-queue-timeout 30)
+     ;; (elfeed :variables
+     ;;         rmh-elfeed-org-files (list "~/dotfiles/emacs/rssfeeds.org")
+     ;;         elfeed-enable-web-interface t
+     ;;         url-queue-timeout 30)
      (osx :variables
           osx-control-as 'control
           osx-option-as 'meta

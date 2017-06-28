@@ -2,12 +2,12 @@
 ;;; This format is meant to be slightly human-readable;
 ;;; nevertheless, you probably don't want to edit it.
 ;;; -*- End Of Bookmark File Format Version Stamp -*-
-(("(sicp) 1-1-4"
- (front-context-string . "   * Nesting of ")
- (rear-context-string . "   procedures.\n\n")
- (position . 65589)
+(("(sicp) 1-2"
+ (front-context-string . "We have now cons")
+ (rear-context-string . "==============\n\n")
+ (position . 105651)
  (filename . "/Users/songpeng.zu/dotfiles/emacs/info/sicp")
- (info-node . "1-1-4")
+ (info-node . "1-2")
  (handler . Info-bookmark-jump))
 ("(gnus) Group Buffer Format"
  (front-context-string . "Group Line Speci")
