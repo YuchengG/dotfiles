@@ -120,7 +120,7 @@ export RDBASE="/usr/local/share/RDKit"
 
 export PATH="/Library/TeX/texbin/:/user/local/bin:/usr/local/lib:$PATH"
 
-export DYLD_LIBRARY_PATH="/usr/local/Cellar/boost/1.60.0_1/lib/:$DYLD_LIBRARY_PATH"
+#export DYLD_LIBRARY_PATH="/usr/local/Cellar/boost/1.60.0_1/lib/:$DYLD_LIBRARY_PATH"
 export CLASSPATH=".;/Library/Java/Extensions/mysql-connector-java-5.1.40-bin.jar"
 export JAVA_HOME=$(/usr/libexec/java_home)
 #export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_80.jdk/Contents/Home/"
@@ -132,3 +132,6 @@ export FIREWORK_HOME="/Users/songpeng.zu/hulu/firework-0.2.0/"
 export PS1="> "
 export ECLIPSE_HOME="/Applications/Eclipse.app/Contents/Eclipse"
 export PATH="$PATH:$JAVA_HOME/bin"
+#export VIRTUALENVWRAPPER_PYTHON="~/miniconda2/bin/python2.7"
+export VIRTUALENVWRAPPER_PYTHON="~/hulu/python-site-packages/bin/python2.7"
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
