@@ -40,3 +40,5 @@
 (add-hook 'nxml-mode-hook 'hs-minor-mode)
 
 (autoload 'gmail2bbdb-import-file "gmail2bbdb" nil t nil)
+
+(add-hook 'find-file-hook (lambda () (setq buffer-read-only t)))
