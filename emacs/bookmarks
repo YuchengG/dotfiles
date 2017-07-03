@@ -6,7 +6,7 @@
  (front-context-string . "We have now cons")
  (rear-context-string . "==============\n\n")
  (position . 105651)
- (filename . "/Users/songpeng.zu/dotfiles/emacs/info/sicp")
+ (filename . "~/dotfiles/emacs/info/sicp")
  (info-node . "1-2")
  (handler . Info-bookmark-jump))
 ("(gnus) Group Buffer Format"

@@ -20,6 +20,7 @@ values."
    '(scheme
      octave
      python
+     ipython-notebook
      csv
      html
      yaml

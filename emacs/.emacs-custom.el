@@ -8,7 +8,7 @@
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#212526" "#ff4b4b" "#b4fa70" "#fce94f" "#729fcf" "#e090d7" "#8cc4ff" "#eeeeec"])
- '(bookmark-default-file "/Users/songpeng.zu/dotfiles/emacs/bookmarks")
+ '(bookmark-default-file "~/dotfiles/emacs/bookmarks")
  '(browse-url-browser-function (quote browse-url-default-macosx-browser))
  '(compilation-message-face (quote default))
  '(cua-global-mark-cursor-color "#2aa198")
@@ -16,7 +16,7 @@
  '(cua-overwrite-cursor-color "#b58900")
  '(cua-read-only-cursor-color "#859900")
  '(custom-enabled-themes (quote (zenburn)))
- '(custom-file "/Users/songpeng.zu/dotfiles/emacs/.emacs-custom.el")
+ '(custom-file "~/dotfiles/emacs/.emacs-custom.el")
  '(custom-safe-themes
    (quote
     ("67e998c3c23fe24ed0fb92b9de75011b92f35d3e89344157ae0d544d50a63a72" "6b1e6953a08acf12843973ec25d69dbfa1a53d869f649dc991a56fbdf0d7eb9e" "9b349c5c09056c292d635725cecf587b44780e061c3d2477383d7eb25d4cdd68" "363de9fd1194546e7461bdb766793b1442c222376faa8254b8eafaf25afe48dc" "84f35ac02435aa65aef82f510756ab21f173624fcb332dd81e3c9f2adaf6b85b" "6bde11b304427c7821b72a06a60e8d079b8f7ae10b407d8af37ed5e5d59b1324" "9f3181dc1fabe5d58bbbda8c48ef7ece59b01bed606cfb868dd147e8b36af97c" "227e2c160b0df776257e1411de60a9a181f890cfdf9c1f45535fc83c9b34406b" "f78de13274781fbb6b01afd43327a4535438ebaeec91d93ebdbba1e3fba34d3c" "6df30cfb75df80e5808ac1557d5cc728746c8dbc9bc726de35b15180fa6e0ad9" "0ae09e79d0a3a7c9f31522fa325c7b9f248e5f5481e9b4a0c3bb9f3a91f221f1" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "bffa9739ce0752a37d9b1eee78fc00ba159748f50dc328af4be661484848e476" default)))
