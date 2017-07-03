@@ -132,6 +132,6 @@ export FIREWORK_HOME="/Users/songpeng.zu/hulu/firework-0.2.0/"
 export PS1="> "
 export ECLIPSE_HOME="/Applications/Eclipse.app/Contents/Eclipse"
 export PATH="$PATH:$JAVA_HOME/bin"
-#export VIRTUALENVWRAPPER_PYTHON="~/miniconda2/bin/python2.7"
-export VIRTUALENVWRAPPER_PYTHON="~/hulu/python-site-packages/bin/python2.7"
+export WORKON_HOME="$HOME/Env"
+export VIRTUALENVWRAPPER_PYTHON="$HOME/miniconda2/bin/python2.7"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
