@@ -3,19 +3,9 @@
 ;; It must be stored in your home directory.
 
 (defun dotspacemacs/layers ()
-  "Configuration Layers declaration.
-You should not put any user code in this function besides modifying the variable
-values."
   (setq-default
-   ;; Base distribution to use. This is a layer contained in the directory
-   ;; `+distribution'. For now available distributions are `spacemacs-base'
-   ;; or `spacemacs'. (default 'spacemacs)
    dotspacemacs-distribution 'spacemacs
-   ;; List of additional paths where to look for configuration layers.
-   ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '("~/dotfiles/emacs/layer/")
-   ;; List of configuration layers to load. If it is the symbol `all' instead
-   ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(scheme
      octave
@@ -54,19 +44,9 @@ values."
             scala-auto-start-ensime t)
      (java :variables
            java-backend 'meghanada)
-     ;;elpy
-     ;; (python :variables
-     ;;         python-enable-yapf-format-on-save t
-     ;;         python-fill-column 79
-     ;;         python-sort-imports-on-save t
-     ;;         python-indent-offset 4)
      c-c++
      ess
      imenu-list
-     ;; (elfeed :variables
-     ;;         rmh-elfeed-org-files (list "~/dotfiles/emacs/rssfeeds.org")
-     ;;         elfeed-enable-web-interface t
-     ;;         url-queue-timeout 30)
      (osx :variables
           osx-control-as 'control
           osx-option-as 'meta
@@ -88,6 +68,7 @@ values."
                                       py-autopep8
                                       doom-themes
                                       gmail2bbdb
+                                      outshine
                                       )
    ;; dotspacemacs-excluded-packages '(smartparens
    ;;                                  semantic
@@ -281,6 +262,7 @@ user code here.  The exception is org related code, which should be placed in
   (push '("melpa-stable" . "stable.melpa.org/packages/") configuration-layer--elpa-archives)
   (push '("ensime" . "melpa-stable") package-pinned-packages)
   (my-setup-indent 4)
+  (defvar outline-minor-mode-prefix "\M-#")
 )
 
 (defun dotspacemacs/user-config ())
