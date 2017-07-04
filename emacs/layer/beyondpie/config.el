@@ -42,3 +42,8 @@
 (autoload 'gmail2bbdb-import-file "gmail2bbdb" nil t nil)
 
 (add-hook 'outline-minor-mode-hook 'outshine-hook-function)
+
+;;; extra set from emacs china.
+(require 'recentf)
+(recentf-mode 1)
+(setq recentf-max-menu-items 15)
