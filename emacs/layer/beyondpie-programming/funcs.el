@@ -30,3 +30,6 @@
   (interactive)
   (setq fci-rule-column 120)
   )
+
+(defun beyondpie/set-buffer-read-only ()
+  (setq buffer-read-only t))
