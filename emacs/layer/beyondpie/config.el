@@ -41,7 +41,4 @@
 
 (autoload 'gmail2bbdb-import-file "gmail2bbdb" nil t nil)
 
-;;(add-hook 'find-file-hook (lambda () (setq buffer-read-only t)))
-
-(when (executable-find "ipython")
-  (setq python-shell-interpreter "ipython"))
+(add-hook 'outline-minor-mode-hook 'outshine-hook-function)

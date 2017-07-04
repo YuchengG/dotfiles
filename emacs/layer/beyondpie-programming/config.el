@@ -7,6 +7,8 @@
 
 ;; Specific lang
 ;;; python
+(when (executable-find "ipython")
+  (setq python-shell-interpreter "ipython"))
 (add-hook 'python-mode-hook
           (lambda ()
             (define-key python-mode-map "\C-c\C-n"
@@ -29,3 +31,9 @@
 (setq flycheck-scalastylerc
       "/usr/local/etc/scalastyle_config.xml")
 (add-hook 'scala-mode-hook 'beyondpie/set-buffer-read-only)
+
+;;; set ESS
+(add-hook 'ess-mode-hook 'beyondpie/set-buffer-read-only)
+
+;;; set Latex
+(add-hook 'LaTeX-mode-hook 'beyondpie/set-buffer-read-only)
