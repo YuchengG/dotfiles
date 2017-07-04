@@ -53,7 +53,9 @@
           osx-command-as 'hyper)
      (pdf-tools :config
                 (setq TeX-view-program-selection '((output-pdf "pdf-tools")))
-                (setq TeX-view-program-list '(("pdf-tools" "TeX-pdf-tools-sync-view"))))
+                (setq TeX-view-program-list '(("pdf-tools"
+                                               "TeX-pdf-tools-sync-view"))))
+     ivy
      beyondpie
      )
    dotspacemacs-additional-packages '(mwe-log-commands

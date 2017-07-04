@@ -43,7 +43,12 @@
 
 (add-hook 'outline-minor-mode-hook 'outshine-hook-function)
 
-;;; extra set from emacs china.
+;;; recent file support
 (require 'recentf)
 (recentf-mode 1)
 (setq recentf-max-menu-items 15)
+
+;;; unique dired
+(put 'dired-find-alternate-file 'disabled nil)
+(with-eval-after-load 'dired
+  (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file))
