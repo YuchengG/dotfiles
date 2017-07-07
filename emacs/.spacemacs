@@ -65,12 +65,12 @@
                                       w3m
                                       counsel-bbdb
                                       cdlatex
-                                      cl-lib
                                       sbt-mode
                                       py-autopep8
                                       doom-themes
                                       gmail2bbdb
                                       outshine
+                                      sx
                                       )
    ;; dotspacemacs-excluded-packages '(smartparens
    ;;                                  semantic
