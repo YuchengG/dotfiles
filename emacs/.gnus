@@ -69,6 +69,9 @@
 (setq gnus-thread-hide-subtree t)
 (setq gnus-thread-ignore-subject t)
 
+;; close auto-fill-mode.
+(add-hook 'message-mode 'turn-off-auto-fill)
+
 ;; Personal Information
 (setq user-full-name "szu")
 (setq user-mail-address "zusongpeng@gmail.com")
